@@ -1,10 +1,15 @@
 import Header from "./components/Header";
+import { store } from "./utils/store";
+import { Provider } from "react-redux";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Header />
-      <h1>hi</h1>
+      <Provider store={store}>
+        <Header />
+        <Outlet />
+      </Provider>
     </>
   );
 }
