@@ -21,7 +21,7 @@ const Header = () => {
               </li>
               <li className="flex items-center gap-2">
                 <BsChatDots />
-                Contact
+                Contact Us
               </li>
             </ul>
           </div>
