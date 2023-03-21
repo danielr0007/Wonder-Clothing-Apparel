@@ -17,7 +17,7 @@ module.exports = {
       "l-grey": "#D9D9D9",
       grey: "#3D3D3D",
       "b-olive": "rgb(177, 215, 180)",
-      aqua: "rgb(168, 209, 209)",
+      water: "#b1dede",
       "b-yellow": "rgb(254, 205, 112) ",
       "l-blue": "rgb(214, 228, 229)",
     },

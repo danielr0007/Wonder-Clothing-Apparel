@@ -1,18 +1,21 @@
 import { Link } from "react-router-dom";
-import { bannerContent } from "../constants";
 
 const BigBannerCard = ({ bannerinfo }) => {
-  console.log(bannerinfo[0].image);
   return (
-    <div className={`border-2  h-full w-full ${bannerinfo[0].background}`}>
-      <div>
-        <h1>{bannerinfo[0].headline}</h1>
-        <h5>{bannerinfo[0].subheadline}</h5>
-        <img src={require(bannerinfo[0].image)} />
-        <Link>Shop Now</Link>
+    <div
+      className={`h-full w-full relative rounded-3xl ${bannerinfo.background}`}
+    >
+      <div className="pt-40 pl-8 ">
+        <h1 className="pb-5 text-6xl font-semibold text-white">
+          {bannerinfo.headline}
+        </h1>
+        <h5 className="w-3/6 text-lg mb-12">{bannerinfo.subheadline}</h5>
+        <Link className="py-4 px-12 bg-red rounded-lg text-white">
+          Shop Now
+        </Link>
       </div>
 
-      <div></div>
+      <img className={bannerinfo.positioningandscale} src={bannerinfo.image} />
     </div>
   );
 };
