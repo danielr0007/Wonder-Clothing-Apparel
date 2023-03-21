@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import { store } from "./utils/store";
+import store from "./utils/store";
 import { Provider } from "react-redux";
 import { Outlet } from "react-router-dom";
 

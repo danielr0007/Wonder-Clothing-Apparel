@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const themeModeSlice = createSlice({
-  name: "theme-mode",
-  initialState: false,
+const themeModeSlice = createSlice({
+  name: "themeMode",
+  initialState: { value: false },
   reducers: {
     toggle: (state) => {
-      !state ? (state = state) : (state = !state);
+      !state.value ? (state.value = true) : (state.value = false);
     },
   },
 });
