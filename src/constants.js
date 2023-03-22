@@ -15,7 +15,7 @@ export const bannerContent = [
       "Elevate Your Style with our brand new products, Purchase Today!",
     image:
       "https://drive.google.com/uc?export=view&id=1JQV-_1y2m02k5gw0VVnL5Rhqi2ubc12x",
-    background: "bg-b-olive",
+    background: "bg-l-blue",
     positioningandscale: "w-[400px] absolute bottom-0 right-0",
   },
   {
@@ -26,7 +26,8 @@ export const bannerContent = [
     image:
       "https://drive.google.com/uc?export=view&id=1SmafDmY9XNKQNwnzJ3UamQvOtyjAYaOE",
     background: "bg-water",
-    positioningandscale: "w-[500px] absolute bottom-0 right-3",
+    positioningandscale:
+      "w-[500px] absolute bottom-0 right-3 transition-all duration-500 ease-in",
   },
   {
     headline: "Stylish Look",
@@ -34,7 +35,7 @@ export const bannerContent = [
     subheadline: "Remarks the landmark of Always On Trend courtesy, Hurry Up!",
     image:
       "https://drive.google.com/uc?export=view&id=1PkLv-Q6vAneoTs6NJ63Huf7olEV-ZoCa",
-    background: "bg-l-blue",
+    background: "bg-b-olive",
     positioningandscale: "w-[380px] absolute bottom-0 right-3",
   },
 ];
