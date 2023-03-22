@@ -1,6 +1,6 @@
 const SmallBannerCards = () => {
   return (
-    <div className="px-5 py-4 mt-2 mb-5 bg-l-blue flex justify-between items-center rounded-lg ">
+    <div className="h-[150px] px-5 mt-5 mb-5 bg-l-blue flex justify-between items-center rounded-lg ">
       <div>
         <h4 className=" text-xl font-semibold">Red Salower for Girl</h4>
         <p className=" text-xs pb-2">Size: XL L M</p>
