@@ -13,7 +13,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   return (
-    <header className={!themeMode ? "bg-white px-5" : "bg-d-grey px-5  dark"}>
+    <header className={!themeMode ? "bg-white px-5" : "bg-d-grey px-5 dark"}>
       <div className="max-w-[82rem] mx-auto">
         <nav className="py-2 flex justify-between">
           <Link to="/">
