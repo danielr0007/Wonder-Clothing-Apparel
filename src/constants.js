@@ -50,10 +50,25 @@ export const smBannerCardColors = [
   "bg-mute-green",
 ];
 
-export const ssmBannerCardColors = [
-  "#75afff",
-  "rgb(255, 231, 204)",
-  "rgb(240, 153, 125)",
-  "rgb(215, 233, 185)",
-  "rgb(206, 229, 208)",
+export const benefitsHomePageData = [
+  {
+    img: "https://drive.google.com/uc?export=view&id=10Lqc4617IjtSWyovquHDdANUt8XNc412",
+    title: "Free Delivery",
+    text: "Get Free Delivery to anywhere in the country",
+  },
+  {
+    img: "https://drive.google.com/uc?export=view&id=1ys9cBoN_QF7uTiOG-JMMHM54Kektdjfy",
+    title: "90 Days Return",
+    text: "Return your products within 90 Days",
+  },
+  {
+    img: "https://drive.google.com/uc?export=view&id=1cemsEbWRKHARAP7eLXQJMH2mbjcLgLFs",
+    title: "Secure Payment",
+    text: "Payment through Card or Bkash, Nogod",
+  },
+  {
+    img: "https://drive.google.com/uc?export=view&id=1KjRhAek7oS2qKnFoq-ymeyL1xMGCnh1j",
+    title: "24/7 Support",
+    text: "Shop and get support from our team anytime",
+  },
 ];

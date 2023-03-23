@@ -3,8 +3,10 @@ import { bannerContent, productDataApi } from "../constants";
 import BigBannerCard from "./BigBannerCard";
 import SmallBannerCards from "./SmallBannerCards";
 import useFetchHook from "../utils/useFetchHook";
+import { useSelector } from "react-redux";
 import { smBannerCardColors } from "../constants";
 import BenefitHomeCards from "./BenefitHomeCards";
+import { benefitsHomePageData } from "../constants";
 
 const Home = () => {
   const [ticker, setTicker] = useState(0);
@@ -12,6 +14,7 @@ const Home = () => {
   const [ticker2, setTicker2] = useState(0);
   const [ticker3, setTicker3] = useState(0);
   const numberOfBenefitsCards = 4;
+  const themeMode = useSelector((state) => state.themeMode.value);
 
   const clothingData = useFetchHook(productDataApi);
 
@@ -38,8 +41,8 @@ const Home = () => {
   }, [ticker2]);
 
   return (
-    <div className="">
-      <section className="pt-6 pb-7 px-7 h-[593px] bg-l-beige ">
+    <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
+      <section className={`pt-6 pb-7 px-7 h-[593px] bg-l-beige dark:bg-grey `}>
         <div className="h-full max-w-[1325px] mx-auto flex gap-9">
           <div className="h-full w-4/6 relative">
             {ticker === 0 && <BigBannerCard bannerinfo={bannerContent[0]} />}
@@ -53,8 +56,8 @@ const Home = () => {
             <div
               className={
                 overlay
-                  ? `h-full w-full bg-l-beige absolute top-0 bottom-0 rounded-3xl  -translate-x-[1000px] transition-all duration-1000 ease-out`
-                  : `h-full w-full bg-l-beige absolute top-0 bottom-0 rounded-3xl translate-x-0 transition-opacity duration-1000 ease-in`
+                  ? `h-full w-full bg-l-beige dark:bg-grey absolute top-0 bottom-0 rounded-3xl  -translate-x-[1000px] transition-all duration-1000 ease-out`
+                  : `h-full w-full bg-l-beige dark:bg-grey absolute top-0 bottom-0 rounded-3xl translate-x-0 transition-opacity duration-1000 ease-in`
               }
             ></div>
 
@@ -68,7 +71,7 @@ const Home = () => {
                     key={i}
                     data-index={i}
                     className={`w-4 h-4  rounded-full ${
-                      ticker === i ? "bg-red" : "bg-white"
+                      ticker === i ? "bg-red" : "bg-white dark:bg-d-grey"
                     }`}
                     onClick={(e) => {
                       console.log(e.target.dataset.index);
@@ -141,10 +144,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="pt-6 pb-7 px-7 h-[325px] bg-l-beige ">
+      <section className="pt-6 pb-7 px-7 h-[325px] bg-l-beige dark:bg-grey ">
         <div className="h-full max-w-[1325px] mx-auto  flex justify-center items-center gap-12">
           {[...Array(numberOfBenefitsCards)].map((e, i) => (
-            <BenefitHomeCards key={i} />
+            <BenefitHomeCards key={i} cardinfo={benefitsHomePageData[i]} />
           ))}
         </div>
       </section>
