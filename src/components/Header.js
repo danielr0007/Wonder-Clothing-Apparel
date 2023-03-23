@@ -12,19 +12,6 @@ const Header = () => {
 
   const dispatch = useDispatch();
 
-  function getData() {
-    // fetch("https://api.storerestapi.com/products")
-    //   .then((response) => response.json())
-    //   .then((json) => console.log(json));
-    fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then(console.log);
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
   return (
     <header className={!themeMode ? "bg-white px-5" : "bg-d-grey px-5  dark"}>
       <div className="max-w-[82rem] mx-auto">

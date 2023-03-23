@@ -39,3 +39,21 @@ export const bannerContent = [
     positioningandscale: "w-[380px] absolute bottom-0 right-3",
   },
 ];
+
+export const productDataApi = "https://dummyjson.com/products";
+
+export const smBannerCardColors = [
+  "bg-blue",
+  "bg-peach",
+  "bg-salmon",
+  "bg-l-green",
+  "bg-m-green",
+];
+
+export const ssmBannerCardColors = [
+  "#75afff",
+  "rgb(255, 231, 204)",
+  "rgb(240, 153, 125)",
+  "rgb(215, 233, 185)",
+  "rgb(206, 229, 208)",
+];
