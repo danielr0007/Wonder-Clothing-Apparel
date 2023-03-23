@@ -1,5 +1,4 @@
 const SmallBannerCards = ({ productinfo, bannercolors }) => {
-  console.log(bannercolors);
   return (
     <div
       className={`h-[150px] px-5 mt-5 mb-5 ${bannercolors} opacity-80 flex justify-between items-center rounded-lg`}

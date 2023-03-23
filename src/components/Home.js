@@ -10,6 +10,7 @@ const Home = () => {
   const [ticker, setTicker] = useState(0);
   const [overlay, setOverlay] = useState(false);
   const [ticker2, setTicker2] = useState(0);
+  const [ticker3, setTicker3] = useState(0);
   const numberOfBenefitsCards = 4;
 
   const clothingData = useFetchHook(productDataApi);
@@ -28,7 +29,11 @@ const Home = () => {
 
   const smallBannerCardsMov = useEffect(() => {
     setTimeout(() => {
-      ticker2 >= 680 ? setTicker2(0) : setTicker2(ticker2 + 170);
+      ticker2 <= -850 ? setTicker2(680) : setTicker2(ticker2 - 170);
+    }, 2600);
+
+    setTimeout(() => {
+      ticker3 <= -1700 ? setTicker3(-170) : setTicker3(ticker3 - 170);
     }, 2600);
   }, [ticker2]);
 
@@ -61,9 +66,14 @@ const Home = () => {
                 return (
                   <div
                     key={i}
+                    data-index={i}
                     className={`w-4 h-4  rounded-full ${
                       ticker === i ? "bg-red" : "bg-white"
                     }`}
+                    onClick={(e) => {
+                      console.log(e.target.dataset.index);
+                      setTicker(e.target.dataset.index);
+                    }}
                   ></div>
                 );
               })}
@@ -81,15 +91,43 @@ const Home = () => {
             </div>
 
             <div className="h-[518px] overflow-hidden">
-              {clothingData?.products.map((product, i) => {
+              {clothingData?.products.slice(0, 5).map((product, i) => {
                 return (
                   <div
                     key={product?.id}
                     style={{
-                      transform: `translate(0,-${ticker2}px)`,
+                      transform: `translate(0,${ticker2}px)`,
                       transition: "ease-in",
                       transitionDuration: "300ms",
                     }}
+                    className={
+                      ticker2 < -680 || ticker2 === 680
+                        ? "opacity-0"
+                        : "opacity-100"
+                    }
+                  >
+                    <SmallBannerCards
+                      productinfo={product}
+                      bannercolors={smBannerCardColors[i]}
+                    />
+                  </div>
+                );
+              })}
+
+              {clothingData?.products.slice(0, 5).map((product, i) => {
+                return (
+                  <div
+                    key={product?.id}
+                    style={{
+                      transform: `translate(0,${ticker3}px)`,
+                      transition: "ease-in",
+                      transitionDuration: "300ms",
+                    }}
+                    className={
+                      ticker3 < -1530 || ticker3 === -170
+                        ? "opacity-0"
+                        : "opacity-100"
+                    }
                   >
                     <SmallBannerCards
                       productinfo={product}
@@ -106,7 +144,7 @@ const Home = () => {
       <section className="pt-6 pb-7 px-7 h-[325px] bg-l-beige ">
         <div className="h-full max-w-[1325px] mx-auto  flex justify-center items-center gap-12">
           {[...Array(numberOfBenefitsCards)].map((e, i) => (
-            <BenefitHomeCards />
+            <BenefitHomeCards key={i} />
           ))}
         </div>
       </section>

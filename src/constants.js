@@ -47,7 +47,7 @@ export const smBannerCardColors = [
   "bg-peach",
   "bg-salmon",
   "bg-l-green",
-  "bg-m-green",
+  "bg-mute-green",
 ];
 
 export const ssmBannerCardColors = [
