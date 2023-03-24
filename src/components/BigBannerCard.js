@@ -9,7 +9,9 @@ const BigBannerCard = ({ bannerinfo }) => {
         <h1 className="pb-5 text-6xl font-semibold text-white">
           {bannerinfo.headline}
         </h1>
-        <h5 className="w-3/6 text-lg mb-12">{bannerinfo.subheadline}</h5>
+        <h5 className="w-3/6 text-lg mb-12 dark:text-l-grey">
+          {bannerinfo.subheadline}
+        </h5>
         <Link className="py-4 px-12 bg-red rounded-lg text-white">
           Shop Now
         </Link>

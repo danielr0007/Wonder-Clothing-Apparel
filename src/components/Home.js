@@ -33,11 +33,8 @@ const Home = () => {
   const smallBannerCardsMov = useEffect(() => {
     setTimeout(() => {
       ticker2 <= -850 ? setTicker2(680) : setTicker2(ticker2 - 170);
-    }, 2600);
-
-    setTimeout(() => {
       ticker3 <= -1700 ? setTicker3(-170) : setTicker3(ticker3 - 170);
-    }, 2600);
+    }, 1000);
   }, [ticker2]);
 
   return (

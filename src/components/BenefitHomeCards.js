@@ -7,12 +7,10 @@ const BenefitHomeCards = function ({ cardinfo }) {
 
   function hoverEffectStarter() {
     setHoverEffect(true);
-    console.log(hoverEffect);
   }
 
   function hoverEffectEnder() {
     setHoverEffect(false);
-    console.log(hoverEffect);
   }
   return (
     <div
@@ -20,7 +18,7 @@ const BenefitHomeCards = function ({ cardinfo }) {
       onMouseOut={hoverEffectEnder}
       className={
         themeMode
-          ? "w-[275px] h-56 rounded-xl flex flex-col items-center justify-center text-center dark hover:shadow-lg"
+          ? "w-[275px] h-56 rounded-xl flex flex-col items-center justify-center text-center dark hover:shadow-lg hover:bg-d-grey"
           : "w-[275px] h-56 rounded-xl flex flex-col items-center justify-center text-center hover:shadow-lg"
       }
     >

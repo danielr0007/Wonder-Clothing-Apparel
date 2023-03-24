@@ -5,7 +5,7 @@ export const bannerContent = [
     subheadline: "We are offering the Fashion That Fits You Best. Grab Now!",
     image:
       "https://drive.google.com/uc?export=view&id=1LvSgyJ-n5BAybx5r2N_l3zV2xEQJbRAU",
-    background: "bg-b-yellow",
+    background: "bg-b-yellow dark:bg-d-purple",
     positioningandscale: "w-[380px] absolute bottom-0 right-3",
   },
   {
@@ -15,7 +15,7 @@ export const bannerContent = [
       "Elevate Your Style with our brand new products, Purchase Today!",
     image:
       "https://drive.google.com/uc?export=view&id=1JQV-_1y2m02k5gw0VVnL5Rhqi2ubc12x",
-    background: "bg-l-blue",
+    background: "bg-l-blue dark:bg-navy",
     positioningandscale: "w-[400px] absolute bottom-0 right-0",
   },
   {
@@ -25,7 +25,7 @@ export const bannerContent = [
       "You one stop place to Shop with Confidence. Shopping is Easy!",
     image:
       "https://drive.google.com/uc?export=view&id=1SmafDmY9XNKQNwnzJ3UamQvOtyjAYaOE",
-    background: "bg-water",
+    background: "bg-water dark:bg-d-green",
     positioningandscale:
       "w-[500px] absolute bottom-0 right-3 transition-all duration-500 ease-in",
   },
@@ -35,7 +35,7 @@ export const bannerContent = [
     subheadline: "Remarks the landmark of Always On Trend courtesy, Hurry Up!",
     image:
       "https://drive.google.com/uc?export=view&id=1PkLv-Q6vAneoTs6NJ63Huf7olEV-ZoCa",
-    background: "bg-b-olive",
+    background: "bg-b-olive dark:bg-brown",
     positioningandscale: "w-[380px] absolute bottom-0 right-3",
   },
 ];
@@ -43,11 +43,11 @@ export const bannerContent = [
 export const productDataApi = "https://dummyjson.com/products";
 
 export const smBannerCardColors = [
-  "bg-blue",
-  "bg-peach",
-  "bg-salmon",
-  "bg-l-green",
-  "bg-mute-green",
+  "bg-blue dark:bg-d-olive",
+  "bg-peach dark:bg-navy",
+  "bg-salmon dark:bg-brown",
+  "bg-l-green dark:bg-d-purple",
+  "bg-mute-green dark:bg-d-green",
 ];
 
 export const benefitsHomePageData = [

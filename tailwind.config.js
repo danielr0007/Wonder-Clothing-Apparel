@@ -6,7 +6,7 @@ module.exports = {
     colors: {
       transparent: "transparent",
 
-      white: "#ffffff",
+      white: "#FFFFFF",
       red: "#D14A3C",
       "d-beige": "#dbd4c9",
       "l-beige": "#fdfbef",
@@ -25,6 +25,11 @@ module.exports = {
       salmon: "rgb(240, 153, 125)",
       "l-green": "rgb(215, 233, 185)",
       "mute-green": "rgb(206, 229, 208)",
+      navy: "#2B3849",
+      "d-purple": "#4D3A5B",
+      "d-green": "#355445",
+      brown: "#5D4D3F",
+      "d-olive": "#605D42",
     },
     extend: {},
   },
