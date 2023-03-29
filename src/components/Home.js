@@ -48,7 +48,7 @@ const Home = () => {
   return (
     <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
       <section className={`pt-6 pb-7 px-7 h-[593px] bg-l-beige dark:bg-grey `}>
-        <div className="h-full max-w-[1325px] mx-auto flex gap-9">
+        <div className="h-full max-w-[1325px] mx-auto md:flex gap-9">
           <div className="h-full w-4/6 relative">
             {ticker === 0 && <BigBannerCard bannerinfo={bannerContent[0]} />}
             {ticker === 1 && <BigBannerCard bannerinfo={bannerContent[1]} />}
@@ -91,7 +91,7 @@ const Home = () => {
           {/* SMALL BANNER SECTION ///////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
 
-          <div className="h-full w-2/6 ">
+          <div className="h-full w-2/6">
             <div className=" w-full  items-center">
               <p className="py-1 px-5 mt-1 inline bg-gradient-to-r from-red to-yellow text-xs text-white rounded-2xl">
                 New Arrivals
@@ -152,8 +152,8 @@ const Home = () => {
       {/* BENEFITS SECTION ///////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
 
-      <section className="pt-6 pb-7 px-7 h-[325px] bg-l-beige dark:bg-grey ">
-        <div className="h-full max-w-[1325px] mx-auto  flex justify-center items-center gap-12">
+      <section className="pt-9 pb-7 min-h-[335px] px-7 bg-l-beige dark:bg-grey ">
+        <div className="h-full max-w-[1325px] mx-auto grid lg:grid-cols-4 grid-cols-2 justify-items-center gap-9">
           {[...Array(numberOfBenefitsCards)].map((e, i) => (
             <BenefitHomeCards key={i} cardinfo={benefitsHomePageData[i]} />
           ))}

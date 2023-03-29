@@ -18,8 +18,8 @@ const BenefitHomeCards = function ({ cardinfo }) {
       onMouseOut={hoverEffectEnder}
       className={
         themeMode
-          ? "w-[275px] h-56 rounded-xl flex flex-col items-center justify-center text-center dark hover:shadow-lg hover:bg-d-grey"
-          : "w-[275px] h-56 rounded-xl flex flex-col items-center justify-center text-center hover:shadow-lg"
+          ? "px-5 h-56 rounded-xl flex flex-col items-center justify-center text-center dark hover:shadow-lg hover:bg-d-grey"
+          : "px-5 h-56 rounded-xl flex flex-col items-center justify-center text-center hover:bg-white hover:shadow-lg"
       }
     >
       {/* <div className="w-16 h-16 mb-4 bg-l-green rounded-3xl hover:animate-bounce"></div> */}

@@ -69,6 +69,6 @@ export const benefitsHomePageData = [
   {
     img: "https://drive.google.com/uc?export=view&id=1KjRhAek7oS2qKnFoq-ymeyL1xMGCnh1j",
     title: "24/7 Support",
-    text: "Shop and get support from our team anytime",
+    text: "Get support from our team anytime",
   },
 ];
