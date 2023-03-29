@@ -6,6 +6,7 @@ import useFetchHook from "../utils/useFetchHook";
 import { useSelector } from "react-redux";
 import { smBannerCardColors } from "../constants";
 import BenefitHomeCards from "./BenefitHomeCards";
+import SmProductCard from "./SmProductCard";
 import { benefitsHomePageData } from "../constants";
 
 const Home = () => {
@@ -19,22 +20,29 @@ const Home = () => {
   const clothingData = useFetchHook(productDataApi);
 
   const bigBannerMov = useEffect(() => {
-    setTimeout(() => {
+    const bannerTicker = setTimeout(() => {
       ticker === 3 ? setTicker(0) : setTicker(ticker + 1);
     }, 5000);
 
     setOverlay(true);
 
-    setTimeout(() => {
+    const overLayTicker = setTimeout(() => {
       setOverlay(false);
     }, 4850);
+
+    return () => {
+      clearTimeout(bannerTicker);
+      clearTimeout(overLayTicker);
+    };
   }, [ticker]);
 
   const smallBannerCardsMov = useEffect(() => {
-    setTimeout(() => {
+    const smallBannerTicker = setTimeout(() => {
       ticker2 <= -850 ? setTicker2(680) : setTicker2(ticker2 - 170);
       ticker3 <= -1700 ? setTicker3(-170) : setTicker3(ticker3 - 170);
-    }, 1000);
+    }, 2300);
+
+    return () => clearTimeout(smallBannerTicker);
   }, [ticker2]);
 
   return (
@@ -53,8 +61,8 @@ const Home = () => {
             <div
               className={
                 overlay
-                  ? `h-full w-full bg-l-beige dark:bg-grey absolute top-0 bottom-0 rounded-3xl  -translate-x-[1000px] transition-all duration-1000 ease-out`
-                  : `h-full w-full bg-l-beige dark:bg-grey absolute top-0 bottom-0 rounded-3xl translate-x-0 transition-opacity duration-1000 ease-in`
+                  ? `h-full w-full bg-l-beige dark:bg-grey absolute top-0 bottom-0 rounded-3xl  -translate-x-[1200px] transition-all duration-1000 ease-out`
+                  : `h-full w-full bg-l-beige dark:bg-grey absolute top-0 bottom-0 rounded-3xl`
               }
             ></div>
 
@@ -71,8 +79,8 @@ const Home = () => {
                       ticker === i ? "bg-red" : "bg-white dark:bg-d-grey"
                     }`}
                     onClick={(e) => {
-                      console.log(e.target.dataset.index);
-                      setTicker(e.target.dataset.index);
+                      setTicker(Number(e.target.dataset.index));
+                      setOverlay(false);
                     }}
                   ></div>
                 );
@@ -141,11 +149,25 @@ const Home = () => {
         </div>
       </section>
 
+      {/* BENEFITS SECTION ///////////////////////////////////////////////
+              //////////////////////////////////////////////////////// */}
+
       <section className="pt-6 pb-7 px-7 h-[325px] bg-l-beige dark:bg-grey ">
         <div className="h-full max-w-[1325px] mx-auto  flex justify-center items-center gap-12">
           {[...Array(numberOfBenefitsCards)].map((e, i) => (
             <BenefitHomeCards key={i} cardinfo={benefitsHomePageData[i]} />
           ))}
+        </div>
+      </section>
+
+      {/* HOT DEALS SECTION ///////////////////////////////////////////////
+              //////////////////////////////////////////////////////// */}
+      <section className="pt-6 pb-32 px-7 bg-l-beige dark:bg-grey ">
+        <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px] grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5 sm:text-yellow md:text-black border-2">
+          <SmProductCard />
+          <SmProductCard />
+          <SmProductCard />
+          <SmProductCard />
         </div>
       </section>
     </div>
