@@ -37,6 +37,8 @@ const Home = () => {
   }, [ticker]);
 
   const smallBannerCardsMov = useEffect(() => {
+    if (window.innerWidth < 1024) return;
+
     const smallBannerTicker = setTimeout(() => {
       ticker2 <= -850 ? setTicker2(680) : setTicker2(ticker2 - 170);
       ticker3 <= -1700 ? setTicker3(-170) : setTicker3(ticker3 - 170);
@@ -47,9 +49,11 @@ const Home = () => {
 
   return (
     <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
-      <section className={`pt-6 pb-7 px-7 h-[593px] bg-l-beige dark:bg-grey `}>
-        <div className="h-full max-w-[1325px] mx-auto md:flex gap-9">
-          <div className="h-full w-4/6 relative">
+      <section
+        className={`pt-6 pb-7 lg:px-7 md:px-5 px-3 bg-l-beige dark:bg-grey`}
+      >
+        <div className="max-w-[1325px] mx-auto lg:flex lg:gap-9 md:gap-6">
+          <div className="lg:h-auto h-[455px] lg:w-4/6 w-full relative">
             {ticker === 0 && <BigBannerCard bannerinfo={bannerContent[0]} />}
             {ticker === 1 && <BigBannerCard bannerinfo={bannerContent[1]} />}
             {ticker === 2 && <BigBannerCard bannerinfo={bannerContent[2]} />}
@@ -61,8 +65,8 @@ const Home = () => {
             <div
               className={
                 overlay
-                  ? `h-full w-full bg-l-beige dark:bg-grey absolute top-0 bottom-0 rounded-3xl  -translate-x-[1200px] transition-all duration-1000 ease-out`
-                  : `h-full w-full bg-l-beige dark:bg-grey absolute top-0 bottom-0 rounded-3xl`
+                  ? `h-full w-full bg-l-beige dark:bg-grey absolute top-0 bottom-0 md:rounded-3xl rounded-2xl -translate-x-[1200px] transition-all duration-1000 ease-out`
+                  : `h-full w-full bg-l-beige dark:bg-grey absolute top-0 bottom-0 md:rounded-3xl rounded-2xl`
               }
             ></div>
 
@@ -91,14 +95,14 @@ const Home = () => {
           {/* SMALL BANNER SECTION ///////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
 
-          <div className="h-full w-2/6">
-            <div className=" w-full  items-center">
-              <p className="py-1 px-5 mt-1 inline bg-gradient-to-r from-red to-yellow text-xs text-white rounded-2xl">
+          <div className="lg:w-2/6 pt-9">
+            <div className="lg:py-0 py-2 w-full">
+              <p className="py-1 px-5 md:mt-1 inline bg-gradient-to-r from-red to-yellow text-xs text-white rounded-2xl">
                 New Arrivals
               </p>
             </div>
 
-            <div className="h-[518px] overflow-hidden">
+            <div className="lg:h-[518px] h-[180px] md:overflow-hidden overflow-scroll lg:block grid md:grid-cols-3 grid-cols-1">
               {clothingData?.products.slice(0, 5).map((product, i) => {
                 return (
                   <div
@@ -122,28 +126,29 @@ const Home = () => {
                 );
               })}
 
-              {clothingData?.products.slice(0, 5).map((product, i) => {
-                return (
-                  <div
-                    key={product?.id}
-                    style={{
-                      transform: `translate(0,${ticker3}px)`,
-                      transition: "ease-in",
-                      transitionDuration: "300ms",
-                    }}
-                    className={
-                      ticker3 < -1530 || ticker3 === -170
-                        ? "opacity-0"
-                        : "opacity-100"
-                    }
-                  >
-                    <SmallBannerCards
-                      productinfo={product}
-                      bannercolors={smBannerCardColors[i]}
-                    />
-                  </div>
-                );
-              })}
+              {window.innerWidth < 1024 ||
+                clothingData?.products.slice(0, 5).map((product, i) => {
+                  return (
+                    <div
+                      key={product?.id}
+                      style={{
+                        transform: `translate(0,${ticker3}px)`,
+                        transition: "ease-in",
+                        transitionDuration: "300ms",
+                      }}
+                      className={
+                        ticker3 < -1530 || ticker3 === -170
+                          ? "opacity-0"
+                          : "opacity-100"
+                      }
+                    >
+                      <SmallBannerCards
+                        productinfo={product}
+                        bannercolors={smBannerCardColors[i]}
+                      />
+                    </div>
+                  );
+                })}
             </div>
           </div>
         </div>
@@ -153,7 +158,7 @@ const Home = () => {
               //////////////////////////////////////////////////////// */}
 
       <section className="pt-9 pb-7 min-h-[335px] px-7 bg-l-beige dark:bg-grey ">
-        <div className="h-full max-w-[1325px] mx-auto grid lg:grid-cols-4 grid-cols-2 justify-items-center gap-9">
+        <div className="h-full max-w-[1325px] mx-auto grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 justify-items-center gap-9">
           {[...Array(numberOfBenefitsCards)].map((e, i) => (
             <BenefitHomeCards key={i} cardinfo={benefitsHomePageData[i]} />
           ))}
@@ -162,8 +167,8 @@ const Home = () => {
 
       {/* HOT DEALS SECTION ///////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
-      <section className="pt-6 pb-32 px-7 bg-l-beige dark:bg-grey ">
-        <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px] grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5 sm:text-yellow md:text-black border-2">
+      <section className="pt-6 pb-32 sm:px-7 px-3 bg-l-beige dark:bg-grey ">
+        <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px] grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5 border-2">
           <SmProductCard />
           <SmProductCard />
           <SmProductCard />

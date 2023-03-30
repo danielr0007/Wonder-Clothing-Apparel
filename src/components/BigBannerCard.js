@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 const BigBannerCard = ({ bannerinfo }) => {
   return (
     <div
-      className={`h-full w-full relative rounded-3xl ${bannerinfo.background}`}
+      className={`h-full w-full relative md:rounded-3xl rounded-2xl ${bannerinfo.background}`}
     >
-      <div className="pt-40 pl-8">
-        <h1 className="pb-5 text-6xl font-semibold text-white">
+      <div className="md:pt-40 pt-16 md:pl-8 md:text-left text-center">
+        <h1 className="md:pb-5 pb-3 lg:text-6xl md:text-5xl text-3xl font-semibold text-white">
           {bannerinfo.headline}
         </h1>
-        <h5 className="w-3/6 text-lg mb-12 dark:text-l-grey">
+        <h5 className="md:w-3/6 lg:text-lg md:text-base text-sm md:mb-12 mb-7 dark:text-l-grey">
           {bannerinfo.subheadline}
         </h5>
-        <Link className="py-4 px-12 bg-red rounded-lg text-white">
+        <Link className="md:py-4 md:px-12 py-2 px-8 bg-red rounded-lg text-white">
           Shop Now
         </Link>
       </div>

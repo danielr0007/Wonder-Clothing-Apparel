@@ -6,7 +6,8 @@ export const bannerContent = [
     image:
       "https://drive.google.com/uc?export=view&id=1LvSgyJ-n5BAybx5r2N_l3zV2xEQJbRAU",
     background: "bg-b-yellow dark:bg-d-purple",
-    positioningandscale: "w-[380px] absolute bottom-0 right-3",
+    positioningandscale:
+      "lg:w-[380px] md:w-[345px] w-[210px] absolute bottom-0 md:right-3 right-[50%] md:translate-x-0 translate-x-1/2",
   },
   {
     headline: "Comfort Fashion",
@@ -16,7 +17,8 @@ export const bannerContent = [
     image:
       "https://drive.google.com/uc?export=view&id=1JQV-_1y2m02k5gw0VVnL5Rhqi2ubc12x",
     background: "bg-l-blue dark:bg-navy",
-    positioningandscale: "w-[400px] absolute bottom-0 right-0",
+    positioningandscale:
+      "lg:w-[400px] md:w-[360px] w-[265px] absolute bottom-0 md:right-0 right-0",
   },
   {
     headline: "Royal Vibe",
@@ -27,7 +29,7 @@ export const bannerContent = [
       "https://drive.google.com/uc?export=view&id=1SmafDmY9XNKQNwnzJ3UamQvOtyjAYaOE",
     background: "bg-water dark:bg-d-green",
     positioningandscale:
-      "w-[500px] absolute bottom-0 right-3 transition-all duration-500 ease-in",
+      "lg:w-[500px] md:w-[450px] w-[285px] absolute bottom-0 md:right-3 right-[50%] md:translate-x-0 translate-x-1/2",
   },
   {
     headline: "Stylish Look",
@@ -36,7 +38,8 @@ export const bannerContent = [
     image:
       "https://drive.google.com/uc?export=view&id=1PkLv-Q6vAneoTs6NJ63Huf7olEV-ZoCa",
     background: "bg-b-olive dark:bg-brown",
-    positioningandscale: "w-[380px] absolute bottom-0 right-3",
+    positioningandscale:
+      "lg:w-[380px] md:w-[345px] w-[200px] absolute bottom-0 md:right-3 right-[50%] md:translate-x-0 translate-x-1/2",
   },
 ];
 

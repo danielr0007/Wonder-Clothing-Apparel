@@ -14,10 +14,10 @@ const SmallBannerCards = ({ productinfo, bannercolors }) => {
         themeMode
           ? `h-[150px] px-5 mt-5 mb-5  ${
               hoverEffect ? " bg-d-grey" : bannercolors
-            } opacity-100 flex justify-between items-center rounded-lg dark`
-          : `h-[150px] px-5 mt-5 mb-5 ${
+            } opacity-100 flex justify-between items-center lg:rounded-lg rounded-md dark`
+          : `h-[150px] px-5 md:mt-5 mt-3 mb-5 ${
               hoverEffect ? "bg-water" : bannercolors
-            } opacity-80 flex justify-between items-center rounded-lg`
+            } opacity-80 flex justify-between items-center lg:rounded-lg rounded-md`
       }
     >
       <div className="">
@@ -32,7 +32,7 @@ const SmallBannerCards = ({ productinfo, bannercolors }) => {
 
       <img
         className={`w-20 transition-transform duration-100 ease-in-out ${
-          hoverEffect && " scale-125"
+          hoverEffect && "scale-125"
         }`}
         src={productinfo.images[2]}
       />
