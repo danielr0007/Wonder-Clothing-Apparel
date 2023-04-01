@@ -1,32 +1,34 @@
 import logo from "../assets/logo.png";
 import { FaOpencart, FaRegHeart, FaMoon } from "react-icons/fa";
-import { MdStorefront, MdMenu } from "react-icons/md";
-import { BsChatDots, BsSearch, BsFillSunFill } from "react-icons/bs";
+import { MdStorefront, MdMenu, MdLogin } from "react-icons/md";
+import { BsChatDots, BsSearch, BsFillSunFill, BsCart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toggle } from "../utils/themeMode";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const dispatch = useDispatch();
 
   const mobileMenuLinks = [
     {
-      name: "collections",
-      icon: "FaOpencart",
+      name: "Collections",
     },
     {
-      name: "store location",
-      icon: "MdStorefront",
+      name: "Store Location",
     },
     {
-      name: "contact",
-      icon: "FaOpencart",
+      name: "Contact",
     },
   ];
+
+  function toggleMobileMenu() {
+    !showMobileMenu ? setShowMobileMenu(true) : setShowMobileMenu(false);
+  }
 
   return (
     <header
@@ -35,10 +37,13 @@ const Header = () => {
       }
     >
       <div className="max-w-[82rem] mx-auto">
-        <nav className="py-2 lg:px-0 px-3 flex justify-between">
-          <MdMenu className="self-center text-2xl lg:hidden" />
+        <nav className="md:py-2 py-4 lg:px-0 px-1 flex justify-between">
+          <MdMenu
+            onClick={toggleMobileMenu}
+            className="self-center text-xl lg:hidden dark:text-l-grey cursor-pointer"
+          />
           <Link to="/">
-            <img src={logo} className="lg:w-[220px] md:w-[200px] w-[170px]" />
+            <img src={logo} className="lg:w-[220px] md:w-[200px] w-[120px]" />
           </Link>
 
           <div className="">
@@ -58,35 +63,48 @@ const Header = () => {
           </div>
 
           <div>
-            <ul className="h-full flex gap-9 items-center ">
+            <ul className="h-full flex md:gap-9 gap-4 items-center ">
               <li className="flex items-center gap-2 dark:text-l-grey">
                 <BsSearch />
-                Search
+                <p className="md:block hidden">Search</p>
               </li>
-              <li className="flex items-center gap-2 dark:text-l-grey">
-                <FaRegHeart />
-                <Link to="wishlist">Wish List</Link>
+              <li className="dark:text-l-grey">
+                <Link className="flex items-center gap-2" to="wishlist">
+                  <FaRegHeart />
+                  <p className="md:block hidden">Wish List</p>
+                </Link>
+              </li>
+              <li className="md:hidden block">
+                <BsCart className="dark:text-l-grey" />
               </li>
               <li>
                 <Link
-                  className="py-2 px-4 bg-red text-white rounded-md"
+                  className="py-2 px-4 bg-red text-white rounded-md sm:block hidden"
                   to="sign-in"
                 >
                   Sign In
                 </Link>
+                <Link className="sm:hidden block" to="sign-in">
+                  <MdLogin className=" dark:text-l-grey" />
+                </Link>
               </li>
+
               <li onClick={() => dispatch(toggle())}>
                 {!themeMode ? (
-                  <BsFillSunFill className="text-2xl dark:text-l-grey" />
+                  <BsFillSunFill className="text-xl dark:text-l-grey" />
                 ) : (
-                  <FaMoon className="text-2xl dark:text-l-grey" />
+                  <FaMoon className="text-xl dark:text-l-grey" />
                 )}
               </li>
             </ul>
           </div>
         </nav>
       </div>
-      <MobileMenu links={mobileMenuLinks} />
+      <MobileMenu links={mobileMenuLinks} mobileMenuVisibility={showMobileMenu}>
+        <FaOpencart />
+        <MdStorefront />
+        <BsChatDots />
+      </MobileMenu>
     </header>
   );
 };

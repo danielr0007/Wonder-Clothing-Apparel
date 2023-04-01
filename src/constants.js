@@ -45,6 +45,39 @@ export const bannerContent = [
 
 export const productDataApi = "https://dummyjson.com/products";
 
+export const productPics = [
+  "https://drive.google.com/uc?export=view&id=16qWj7sPcAdn7BlO1l5FJCcd-1fAzkyKA",
+  "https://drive.google.com/uc?export=view&id=1UoD2VwXz2CW6cHI3rG6oOXT-lMC-pHdc",
+  "https://drive.google.com/uc?export=view&id=1wWjv_fDcbgXj54QaKBWYhKM0cOhryxqR",
+  "https://drive.google.com/uc?export=view&id=1oPAbMjOl1sg6bLVF8o_2S0_Y5xq-QFBS",
+  "https://drive.google.com/uc?export=view&id=1c2kM7Z6dYt746043Lx3WVARofrU3Rtt4",
+  "https://drive.google.com/uc?export=view&id=1ppuGVFcWPBDD8Ldmjo8_-hi5fK0xl4Pg",
+  "https://drive.google.com/uc?export=view&id=1iFhdPTOgOhsqfipsuFZgWz1NIJZ5oB_K",
+  "https://drive.google.com/uc?export=view&id=1NO2JXhaWQuCZ_MKM9jYkhkiVYd5ePm3I",
+  "https://drive.google.com/uc?export=view&id=1oKroIfszw2PxXSWb52pHFyhRkuXopkjc",
+  "https://drive.google.com/uc?export=view&id=1cKc10ZTp05h3xV3uZp0MyMUOciuqc_JW",
+  "https://drive.google.com/uc?export=view&id=1SYLvOnPdakC_ts9_8c6q11qo5LDFi7HX",
+  "https://drive.google.com/uc?export=view&id=1OjTQunpyD9bDkdvnetmJxPzp6Az2zVjT",
+  "https://drive.google.com/uc?export=view&id=1zwKVH42RpBPJIfe58UmfpX2q8YKkC2Bs",
+  "https://drive.google.com/uc?export=view&id=1r7foz6dY_WO05uZyUMb0MqAaZVJ9jcWZ",
+  "https://drive.google.com/uc?export=view&id=1roZpNCjT8ZUvY95FNnvtgbFXDbGzjF_m",
+  "https://drive.google.com/uc?export=view&id=1hKIMpBRaE_OwJ40JFIpuy2EdIB3qm-Jp",
+  "https://drive.google.com/uc?export=view&id=1hms8hLbJQwJg_iNREvErI6wAHVRedbHE",
+  "https://drive.google.com/uc?export=view&id=1vSHl10bi3q9YXx7kXfhUbcj0y86ulkkN",
+  "https://drive.google.com/uc?export=view&id=1VMCfZdx-p_2Zj_PMehnQF-KCxYzctgS-",
+  "https://drive.google.com/uc?export=view&id=1zYrfqs-9XvfQwguimlnidnrohIf4hdeR",
+  "https://drive.google.com/uc?export=view&id=1ZQesOSwbTyQ9_J5EnEN9vx6yZwA08IZ7",
+  "https://drive.google.com/uc?export=view&id=1J9WL5DwjxpdX0pY8MboBZLj_mxQ74BfE",
+  "https://drive.google.com/uc?export=view&id=119W8x0gP_f_rLbrZIQdPNO1D54uCLZ1j",
+  "https://drive.google.com/uc?export=view&id=16jwtqJX4OfSG4uny3NCkyN6GbnroMsSl",
+  "https://drive.google.com/uc?export=view&id=13YajmZHr7xud8_TGorSGqoXykKfStz0I",
+  "https://drive.google.com/uc?export=view&id=1LbLrdIrZ7Fr6TwlJS3wFgN6p_J4zIH2O",
+  "https://drive.google.com/uc?export=view&id=1X-3vEilHSzPq3ZGpQY2Ol_5yL1TAjlWv",
+  "https://drive.google.com/uc?export=view&id=1W430b8R_f1fY1hZtDSP3ZqXohKtOGy0h",
+  "https://drive.google.com/uc?export=view&id=1oU-wgQ4Lh-kUhYwAlQdKXaZ8uAxeszl9",
+  "https://drive.google.com/uc?export=view&id=1krhq7-f7CJ9W9CwvW0XRqU1Odr6icVG-",
+];
+
 export const smBannerCardColors = [
   "bg-blue dark:bg-d-olive",
   "bg-peach dark:bg-navy",

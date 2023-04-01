@@ -8,6 +8,9 @@ import { smBannerCardColors } from "../constants";
 import BenefitHomeCards from "./BenefitHomeCards";
 import SmProductCard from "./SmProductCard";
 import { benefitsHomePageData } from "../constants";
+import { productPics } from "../constants";
+import lottie from "lottie-web";
+import { defineElement } from "lord-icon-element";
 
 const Home = () => {
   const [ticker, setTicker] = useState(0);
@@ -168,11 +171,21 @@ const Home = () => {
       {/* HOT DEALS SECTION ///////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
       <section className="pt-6 pb-32 sm:px-7 px-3 bg-l-beige dark:bg-grey ">
-        <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px] grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5 border-2">
-          <SmProductCard />
-          <SmProductCard />
-          <SmProductCard />
-          <SmProductCard />
+        <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px] ">
+          <h4 className="mb-7 ml-3 text-xl font-bold">Hot Deals</h4>
+
+          <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5">
+            {clothingData?.products.slice(0, 8).map((product, i) => {
+              return (
+                <SmProductCard
+                  key={product?.id}
+                  productinfo={product}
+                  productpics={productPics[i]}
+                />
+              );
+            })}
+          </div>
+          <p className="mt-7 text-right font-semibold">See More</p>
         </div>
       </section>
     </div>
