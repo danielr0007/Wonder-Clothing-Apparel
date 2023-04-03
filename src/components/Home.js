@@ -9,8 +9,11 @@ import BenefitHomeCards from "./BenefitHomeCards";
 import SmProductCard from "./SmProductCard";
 import { benefitsHomePageData } from "../constants";
 import { productPics } from "../constants";
-import lottie from "lottie-web";
-import { defineElement } from "lord-icon-element";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { MdStorefront, MdMenu, MdLogin } from "react-icons/md";
+import { BsChatDots, BsSearch, BsFillSunFill, BsCart } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import ImgSlider from "./ImgSlider";
 
 const Home = () => {
   const [ticker, setTicker] = useState(0);
@@ -168,11 +171,21 @@ const Home = () => {
         </div>
       </section>
 
-      {/* HOT DEALS SECTION ///////////////////////////////////////////////
+      {/* HOT DEALS SECTION ////////////////////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
       <section className="pt-6 pb-32 sm:px-7 px-3 bg-l-beige dark:bg-grey ">
         <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px] ">
-          <h4 className="mb-7 ml-3 text-xl font-bold">Hot Deals</h4>
+          {/* Section Title */}
+          <div className="flex items-center mb-7 ">
+            <lord-icon
+              src="https://cdn.lordicon.com/tqywkdcz.json"
+              trigger="loop"
+              style={{ width: "60px", height: "60px", display: "block" }}
+            ></lord-icon>
+            <h4 className="ml-3 text-2xl font-bold dark:text-white">
+              Hot Deals
+            </h4>
+          </div>
 
           <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5">
             {clothingData?.products.slice(0, 8).map((product, i) => {
@@ -185,8 +198,22 @@ const Home = () => {
               );
             })}
           </div>
-          <p className="mt-7 text-right font-semibold">See More</p>
+          <div className="mt-9 dark:text-white">
+            <Link
+              className="flex items-center justify-end gap-4"
+              to="collections"
+            >
+              <p className="font-semibold text-yellow">See More</p>
+              <FaLongArrowAltRight />
+            </Link>
+          </div>
         </div>
+      </section>
+
+      {/* PROMOTIONS SECTION ////////////////////////////////////////////////////////////
+              //////////////////////////////////////////////////////// */}
+      <section className="pt-6 pb-32">
+        <ImgSlider />
       </section>
     </div>
   );
