@@ -258,7 +258,7 @@ const Home = () => {
               //////////////////////////////////////////////////////// */}
       <section className="pt-6 pb-24 sm:px-7 px-3 bg-l-beige dark:bg-grey">
         <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px]">
-          <h2 className="mb-10 text-center md:text-5xl text-2xl font-bold">
+          <h2 className="mb-10 text-center md:text-5xl text-2xl dark:text-white font-bold">
             From Our Customers
           </h2>
 

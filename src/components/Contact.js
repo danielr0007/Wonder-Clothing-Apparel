@@ -8,7 +8,7 @@ const Contact = () => {
         className={`pt-6 pb-7 lg:px-7 md:px-5 px-3 bg-l-beige dark:bg-grey`}
       >
         <div className="md:mb-8 max-w-[1150px] mx-auto">
-          <h1 className="md:mt-4 mt-6 md:pb-12 pb-14 lg:text-5xl md:text-3xl text-2xl dark:text-white font-bold text-center">
+          <h1 className="md:mt-4 mt-6 md:pb-12 pb-14 lg:text-5xl text-3xl dark:text-white font-bold text-center">
             Contact Us
           </h1>
 
