@@ -10,10 +10,12 @@ import SmProductCard from "./SmProductCard";
 import { benefitsHomePageData } from "../constants";
 import { productPics } from "../constants";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import { MdStorefront, MdMenu, MdLogin } from "react-icons/md";
-import { BsChatDots, BsSearch, BsFillSunFill, BsCart } from "react-icons/bs";
+
 import { Link } from "react-router-dom";
 import ImgSlider from "./ImgSlider";
+import HomeSecTitleAnimated from "./HomeSecTitleAnimated";
+import TestimonialSlider from "./TestimonialSlider";
+import Footer from "./Footer";
 
 const Home = () => {
   const [ticker, setTicker] = useState(0);
@@ -163,7 +165,7 @@ const Home = () => {
       {/* BENEFITS SECTION ///////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
 
-      <section className="pt-9 pb-7 min-h-[335px] px-7 bg-l-beige dark:bg-grey ">
+      <section className="pt-9 md:pb-7 pb-20 min-h-[335px] px-7 bg-l-beige dark:bg-grey ">
         <div className="h-full max-w-[1325px] mx-auto grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 justify-items-center gap-9">
           {[...Array(numberOfBenefitsCards)].map((e, i) => (
             <BenefitHomeCards key={i} cardinfo={benefitsHomePageData[i]} />
@@ -173,19 +175,13 @@ const Home = () => {
 
       {/* HOT DEALS SECTION ////////////////////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
-      <section className="pt-6 pb-32 sm:px-7 px-3 bg-l-beige dark:bg-grey ">
+      <section className="pt-6 pb-20 sm:px-7 px-3 bg-l-beige dark:bg-grey ">
         <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px] ">
           {/* Section Title */}
-          <div className="flex items-center mb-7 ">
-            <lord-icon
-              src="https://cdn.lordicon.com/tqywkdcz.json"
-              trigger="loop"
-              style={{ width: "60px", height: "60px", display: "block" }}
-            ></lord-icon>
-            <h4 className="ml-3 text-2xl font-bold dark:text-white">
-              Hot Deals
-            </h4>
-          </div>
+          <HomeSecTitleAnimated
+            title="Hot Deals"
+            source="https://cdn.lordicon.com/tqywkdcz.json"
+          />
 
           <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5">
             {clothingData?.products.slice(0, 8).map((product, i) => {
@@ -198,6 +194,7 @@ const Home = () => {
               );
             })}
           </div>
+
           <div className="mt-9 dark:text-white">
             <Link
               className="flex items-center justify-end gap-4"
@@ -212,8 +209,96 @@ const Home = () => {
 
       {/* PROMOTIONS SECTION ////////////////////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
-      <section className="pt-6 pb-32">
-        <ImgSlider />
+      <section className="pt-6 md:pb-24 pb-1">
+        <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px]">
+          <HomeSecTitleAnimated
+            title="Promotions"
+            source="https://cdn.lordicon.com/ftrbfost.json"
+          />
+
+          <ImgSlider />
+        </div>
+      </section>
+
+      {/* POPULAR ITEMS SECTION ////////////////////////////////////////////////////////////
+              //////////////////////////////////////////////////////// */}
+      <section className="md:pt-6 pt-2 pb-24 sm:px-7 px-3 bg-l-beige dark:bg-grey">
+        <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px]">
+          {/* Section Title */}
+          <HomeSecTitleAnimated
+            title="Popular Items"
+            source="https://cdn.lordicon.com/xhbsnkyp.json"
+          />
+
+          <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5">
+            {clothingData?.products.slice(10, 18).map((product, i) => {
+              return (
+                <SmProductCard
+                  key={product?.id}
+                  productinfo={product}
+                  productpics={productPics.slice(10, 18)[i]}
+                />
+              );
+            })}
+          </div>
+
+          <div className="mt-9 dark:text-white">
+            <Link
+              className="flex items-center justify-end gap-4"
+              to="collections"
+            >
+              <p className="font-semibold text-yellow">See More</p>
+              <FaLongArrowAltRight />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS SECTION ////////////////////////////////////////////////////////////
+              //////////////////////////////////////////////////////// */}
+      <section className="pt-6 pb-24 sm:px-7 px-3 bg-l-beige dark:bg-grey">
+        <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px]">
+          <h2 className="mb-10 text-center md:text-5xl text-2xl font-bold">
+            From Our Customers
+          </h2>
+
+          <TestimonialSlider />
+        </div>
+      </section>
+
+      {/* COUPON SECTION ////////////////////////////////////////////////////////////
+              //////////////////////////////////////////////////////// */}
+
+      <section className="pt-6 pb-24 sm:px-7 px-3 bg-l-beige dark:bg-grey">
+        <div className="mx-auto lg:p-12 md:p-8 h-full xl:max-w-[1325px]">
+          <div className="md:h-96 h-[550px] bg-navy rounded-2xl md:grid grid-cols-10">
+            <div className="col-span-4 md:pb-0 pb-5 flex justify-center items-center">
+              <lord-icon
+                src="https://cdn.lordicon.com/pimvysaa.json"
+                trigger="hover"
+                style={{ width: "250px", height: "250px", display: "block" }}
+              ></lord-icon>
+            </div>
+
+            <div className="col-span-6 flex flex-col justify-center md:items-start items-center">
+              <h2 className="md:pb-4 pb-6 lg:text-5xl md:text-4xl text-3xl md:text-left text-center font-bold text-white">
+                Get <span className="text-yellow">20%</span> Off Discount Coupon
+              </h2>
+              <h5 className="lg:text-2xl md:text-xl text-base text-white md:pb-10 pb-11">
+                by subscribing to our Newsletter
+              </h5>
+              <div>
+                <input
+                  className="md:py-3 md:px-8 py-2 px-3 rounded-l-xl"
+                  type="text"
+                />
+                <button className="md:py-3 md:px-4 py-2 px-2 bg-red rounded-r-xl text-white">
+                  Get Coupon
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

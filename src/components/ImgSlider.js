@@ -1,13 +1,10 @@
-import {
-  FaArrowCircleRight,
-  FaArrowCircleLeft,
-  FaLongArrowAltRight,
-} from "react-icons/fa";
+import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const ImgSlider = function () {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [picOpacity, setPicOpacity] = useState(null);
 
   const goToPreviousSlide = () => {
     setCurrentIndex(
@@ -38,17 +35,37 @@ const ImgSlider = function () {
     },
   ];
 
+  useEffect(() => {
+    // Set up the timer to change the slide every 3 seconds
+    const timerId = setInterval(() => {
+      setCurrentIndex((currentIndex + 1) % sectionDisplays.length);
+    }, 6000);
+
+    setPicOpacity(false);
+
+    // Sets opacity to true so that component fades in
+    const opacityTimer = setTimeout(() => {
+      setPicOpacity(true);
+    }, 500);
+
+    // Clear the timer when the component is unmounted
+    return () => {
+      clearInterval(timerId, opacityTimer);
+    };
+  }, [currentIndex, sectionDisplays.length]);
+
   return (
-    <div className="p-5 xl:max-w-[1325px] mx-auto flex items-center gap-3 ">
+    <div className="sm:p-2 p-1 w-full mx-auto flex items-center sm:gap-3 gap-1">
       <div id="arrowleft">
         <FaArrowCircleLeft onClick={goToPreviousSlide} />
       </div>
 
-      <div className="w-full p-2 h-[500px] relative ">
+      <div className="w-full h-[500px] relative ">
         <SliderBanner
           title={sectionDisplays[currentIndex]?.title}
           image={sectionDisplays[currentIndex]?.image}
           pos={sectionDisplays[currentIndex]?.pos}
+          picopacity={picOpacity}
         />
       </div>
 
@@ -65,10 +82,12 @@ const SliderBanner = function (props) {
       style={{
         backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0)), url(${props.image})`,
       }}
-      className={`w-full h-[500px] bg-cover absolute ${props.pos} transition-transform duration-200 ease-in-out`}
+      className={`w-full md:h-[500px] h-[400px] bg-cover absolute transition-opacity duration-500 ease-in ${
+        props.pos
+      } ${props.picopacity ? "opacity-100" : "opacity-0"}`}
     >
       <div className="w-full h-full relative">
-        <div className="absolute top-1/2 -translate-y-1/2 ml-20">
+        <div className="absolute top-1/2 -translate-y-1/2 md:ml-20 ml-8">
           <div className="mb-12">
             <p className="pb-3 text-white text-sm">Ring Top</p>
             <h2 className="text-white text-4xl font-bold">{props.title}</h2>

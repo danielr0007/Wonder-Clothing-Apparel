@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import store from "./utils/store";
 import { Provider } from "react-redux";
@@ -9,6 +10,7 @@ function App() {
       <Provider store={store}>
         <Header />
         <Outlet />
+        <Footer />
       </Provider>
     </>
   );

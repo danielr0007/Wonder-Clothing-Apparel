@@ -5,7 +5,7 @@ const BigBannerCard = ({ bannerinfo }) => {
     <div
       className={`h-full w-full relative md:rounded-3xl rounded-2xl ${bannerinfo.background}`}
     >
-      <div className="md:pt-40 pt-16 md:pl-8 md:text-left text-center">
+      <div className="md:pt-40 pt-16 px-3 md:pl-8 md:text-left text-center">
         <h1 className="md:pb-5 pb-3 lg:text-6xl md:text-5xl text-3xl font-semibold text-white">
           {bannerinfo.headline}
         </h1>

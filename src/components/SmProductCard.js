@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 
 const SmProductCard = function (props) {
   const { productinfo, productpics } = props;
@@ -16,12 +17,23 @@ const SmProductCard = function (props) {
 
       <div className="p-4">
         <p className="pb-1 text-sm text-red">{productinfo.category}</p>
-        <h4 className="text-lg dark:text-l-beige">{productinfo.title}</h4>
-        <div className="mt-6 flex justify-between">
-          <p className=" text-sm font-bold dark:text-l-beige">
+        <h4 className="md:text-lg text-base dark:text-l-beige md:min-h-[55px] min-h-[70px]">
+          {productinfo.title}
+        </h4>
+        <div className="mt-6 md:flex justify-between">
+          <p className="md:pb-0 pb-2 md:text-sm text-base font-bold dark:text-l-beige">
             ${productinfo.price}
           </p>
-          <div className="dark:text-l-beige">***** - 2312</div>
+          <div className="dark:text-l-beige flex justify-between">
+            <span className="flex text-b-yellow">
+              <RiStarSFill />
+              <RiStarSFill />
+              <RiStarSFill />
+              <RiStarSFill />
+              <RiStarSLine />
+            </span>
+            <span className="text-xs pl-1">{productinfo.rating}</span>
+          </div>
         </div>
       </div>
     </div>
