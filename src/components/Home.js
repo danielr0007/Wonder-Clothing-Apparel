@@ -1,27 +1,22 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { bannerContent, productDataApi } from "../constants";
 import BigBannerCard from "./BigBannerCard";
-import SmallBannerCards from "./SmallBannerCards";
 import useFetchHook from "../utils/useFetchHook";
 import { useSelector } from "react-redux";
-import { smBannerCardColors } from "../constants";
 import BenefitHomeCards from "./BenefitHomeCards";
 import SmProductCard from "./SmProductCard";
 import { benefitsHomePageData } from "../constants";
 import { productPics } from "../constants";
 import { FaLongArrowAltRight } from "react-icons/fa";
-
 import { Link } from "react-router-dom";
 import ImgSlider from "./ImgSlider";
 import HomeSecTitleAnimated from "./HomeSecTitleAnimated";
 import TestimonialSlider from "./TestimonialSlider";
-import Footer from "./Footer";
+import SmallBannerSlider from "./SmallBannerSlider";
 
 const Home = () => {
   const [ticker, setTicker] = useState(0);
   const [overlay, setOverlay] = useState(false);
-  const [ticker2, setTicker2] = useState(0);
-  const [ticker3, setTicker3] = useState(0);
   const numberOfBenefitsCards = 4;
   const themeMode = useSelector((state) => state.themeMode.value);
 
@@ -43,17 +38,6 @@ const Home = () => {
       clearTimeout(overLayTicker);
     };
   }, [ticker]);
-
-  const smallBannerCardsMov = useEffect(() => {
-    if (window.innerWidth < 1024) return;
-
-    const smallBannerTicker = setTimeout(() => {
-      ticker2 <= -850 ? setTicker2(680) : setTicker2(ticker2 - 170);
-      ticker3 <= -1700 ? setTicker3(-170) : setTicker3(ticker3 - 170);
-    }, 2300);
-
-    return () => clearTimeout(smallBannerTicker);
-  }, [ticker2]);
 
   return (
     <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
@@ -110,54 +94,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="lg:h-[518px] h-[180px] md:overflow-hidden overflow-scroll lg:block grid md:grid-cols-3 grid-cols-1">
-              {clothingData?.products.slice(0, 5).map((product, i) => {
-                return (
-                  <div
-                    key={product?.id}
-                    style={{
-                      transform: `translate(0,${ticker2}px)`,
-                      transition: "ease-in",
-                      transitionDuration: "300ms",
-                    }}
-                    className={
-                      ticker2 < -680 || ticker2 === 680
-                        ? "opacity-0"
-                        : "opacity-100"
-                    }
-                  >
-                    <SmallBannerCards
-                      productinfo={product}
-                      bannercolors={smBannerCardColors[i]}
-                    />
-                  </div>
-                );
-              })}
-
-              {window.innerWidth < 1024 ||
-                clothingData?.products.slice(0, 5).map((product, i) => {
-                  return (
-                    <div
-                      key={product?.id}
-                      style={{
-                        transform: `translate(0,${ticker3}px)`,
-                        transition: "ease-in",
-                        transitionDuration: "300ms",
-                      }}
-                      className={
-                        ticker3 < -1530 || ticker3 === -170
-                          ? "opacity-0"
-                          : "opacity-100"
-                      }
-                    >
-                      <SmallBannerCards
-                        productinfo={product}
-                        bannercolors={smBannerCardColors[i]}
-                      />
-                    </div>
-                  );
-                })}
-            </div>
+            <SmallBannerSlider />
           </div>
         </div>
       </section>
@@ -258,7 +195,7 @@ const Home = () => {
               //////////////////////////////////////////////////////// */}
       <section className="pt-6 pb-24 sm:px-7 px-3 bg-l-beige dark:bg-grey">
         <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px]">
-          <h2 className="mb-10 text-center md:text-5xl text-2xl dark:text-white font-bold">
+          <h2 className="mb-20 text-center md:text-5xl text-2xl dark:text-white font-bold">
             From Our Customers
           </h2>
 

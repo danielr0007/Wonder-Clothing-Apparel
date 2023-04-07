@@ -1,10 +1,9 @@
-import { FaArrowCircleRight, FaArrowCircleLeft } from "react-icons/fa";
-import { RiStarSFill, RiStarSLine } from "react-icons/ri";
-import { useState, useEffect } from "react";
+import { RiStarSFill } from "react-icons/ri";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const TestimonialSlider = function () {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   const testimonialData = [
     {
       name: "Ron Desantis",
@@ -28,31 +27,46 @@ const TestimonialSlider = function () {
     },
   ];
 
-  const goToPreviousSlide = () => {
-    setCurrentIndex(
-      (currentIndex - 1 + testimonialData.length) % testimonialData.length
-    );
-  };
-
-  const goToNextSlide = () => {
-    setCurrentIndex((currentIndex + 1) % testimonialData.length);
-  };
-
-  const renderSlide = (index) => {
-    const slideIndexes = [
-      (index - 1 + testimonialData.length) % testimonialData.length,
-      index,
-      (index + 1) % testimonialData.length,
-    ];
+  var settings = {
+    className: "center",
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 500,
+    autoplaySpeed: 3500,
+    cssEase: "linear",
+    pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="sm:p-2 p-1 w-full mx-auto flex items-center sm:gap-6 gap-1">
-      <div id="arrowleft">
-        <FaArrowCircleLeft />
-      </div>
-
-      <div className="flex gap-5 overflow-hidden">
+    <div>
+      <Slider {...settings}>
         {testimonialData.map((slideIndex) => (
           <TestimonialCard
             name={slideIndex.name}
@@ -60,22 +74,19 @@ const TestimonialSlider = function () {
             key={slideIndex.id}
           />
         ))}
-      </div>
-
-      <div id="arrowright">
-        <FaArrowCircleRight />
-      </div>
+      </Slider>
     </div>
   );
 };
 
 const TestimonialCard = (props) => {
-  console.log(props);
   return (
-    <div className="min-w-[32.2%] px-5 pt-8 pb-14 text-center bg-mute-green rounded-lg">
+    <div className="min-w-[32.2%] lg:min-h-[355px] md:min-h-[400px] mx-5 px-5 pt-8 pb-14 text-center bg-mute-green dark:bg-d-purple rounded-lg">
       <div className="pb-6 w-10/12 mx-auto flex flex-col justify-center items-center">
         <div className="w-16 h-16 rounded-full bg-red mx-auto"></div>
-        <h4 className="pt-2 pb-1 text-xl font-semibold">{props.name}</h4>
+        <h4 className="pt-2 pb-1 text-xl font-semibold dark:text-white">
+          {props.name}
+        </h4>
         <div className="flex text-yellow">
           <RiStarSFill />
           <RiStarSFill />
@@ -85,7 +96,7 @@ const TestimonialCard = (props) => {
         </div>
       </div>
 
-      <p className="text-sm">{props.text}</p>
+      <p className="text-sm dark:text-white">{props.text}</p>
     </div>
   );
 };
