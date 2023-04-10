@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
-import { productDataApi } from "../constants";
+import { productDataApi, smBannerPics, smBannerCardColors } from "../constants";
 import SmallBannerCards from "./SmallBannerCards";
 import useFetchHook from "../utils/useFetchHook";
-import { smBannerCardColors } from "../constants";
 
 const SmallBannerSlider = function () {
   const clothingData = useFetchHook(productDataApi);
+  const [ticker, setTicker] = useState(0);
   const [ticker2, setTicker2] = useState(0);
-  const [ticker3, setTicker3] = useState(0);
 
   const smallBannerCardsMov = useEffect(() => {
     if (window.innerWidth < 1024) return;
 
     const smallBannerTicker = setTimeout(() => {
-      ticker2 <= -850 ? setTicker2(680) : setTicker2(ticker2 - 170);
-      ticker3 <= -1700 ? setTicker3(-170) : setTicker3(ticker3 - 170);
+      ticker <= -850 ? setTicker(680) : setTicker(ticker - 170);
+      ticker2 <= -1700 ? setTicker2(-170) : setTicker2(ticker2 - 170);
     }, 2300);
 
     return () => clearTimeout(smallBannerTicker);
-  }, [ticker2]);
+  }, [ticker]);
+
   return (
     <div className="lg:h-[518px] h-[180px] md:overflow-hidden overflow-scroll lg:block grid md:grid-cols-3 grid-cols-1">
       {clothingData?.products.slice(0, 5).map((product, i) => {
@@ -26,17 +26,18 @@ const SmallBannerSlider = function () {
           <div
             key={product?.id}
             style={{
-              transform: `translate(0,${ticker2}px)`,
+              transform: `translate(0,${ticker}px)`,
               transition: "ease-in",
               transitionDuration: "300ms",
             }}
             className={
-              ticker2 < -680 || ticker2 === 680 ? "opacity-0" : "opacity-100"
+              ticker < -680 || ticker === 680 ? "opacity-0" : "opacity-100"
             }
           >
             <SmallBannerCards
               productinfo={product}
               bannercolors={smBannerCardColors[i]}
+              bannerpics={smBannerPics[i]}
             />
           </div>
         );
@@ -48,12 +49,12 @@ const SmallBannerSlider = function () {
             <div
               key={product?.id}
               style={{
-                transform: `translate(0,${ticker3}px)`,
+                transform: `translate(0,${ticker2}px)`,
                 transition: "ease-in",
                 transitionDuration: "300ms",
               }}
               className={
-                ticker3 < -1530 || ticker3 === -170
+                ticker2 < -1530 || ticker2 === -170
                   ? "opacity-0"
                   : "opacity-100"
               }
@@ -61,6 +62,7 @@ const SmallBannerSlider = function () {
               <SmallBannerCards
                 productinfo={product}
                 bannercolors={smBannerCardColors[i]}
+                bannerpics={smBannerPics[i]}
               />
             </div>
           );

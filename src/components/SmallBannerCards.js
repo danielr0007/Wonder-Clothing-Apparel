@@ -1,8 +1,7 @@
-import { hover } from "@testing-library/user-event/dist/hover";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-const SmallBannerCards = ({ productinfo, bannercolors }) => {
+const SmallBannerCards = ({ productinfo, bannercolors, bannerpics }) => {
   const themeMode = useSelector((state) => state.themeMode.value);
   let [hoverEffect, setHoverEffect] = useState(false);
 
@@ -31,10 +30,10 @@ const SmallBannerCards = ({ productinfo, bannercolors }) => {
       </div>
 
       <img
-        className={`w-20 transition-transform duration-100 ease-in-out ${
+        className={`w-28 transition-transform duration-100 ease-in-out ${
           hoverEffect && "scale-125"
         }`}
-        src={productinfo.images[2]}
+        src={bannerpics}
       />
     </div>
   );

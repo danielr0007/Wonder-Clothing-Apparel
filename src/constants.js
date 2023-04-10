@@ -78,6 +78,14 @@ export const productPics = [
   "https://drive.google.com/uc?export=view&id=1krhq7-f7CJ9W9CwvW0XRqU1Odr6icVG-",
 ];
 
+export const smBannerPics = [
+  "https://drive.google.com/uc?export=view&id=1TSgh0jXDhwnc-d4Yvur0YLgcx4JY75yK",
+  "https://drive.google.com/uc?export=view&id=1fI3O_oe7DT2ibXNuJlktQz8eb3ncgbee",
+  "https://drive.google.com/uc?export=view&id=1-AXtZGlLpTGyiI339IiKXgk0uyMBjzIM",
+  "https://drive.google.com/uc?export=view&id=15FmEehM3aTOBzndNqrsvCUqJFYQpEqNl",
+  "https://drive.google.com/uc?export=view&id=1OCHN_vOc2Q4aNticfGYH55HImfmG2HxO",
+];
+
 export const smBannerCardColors = [
   "bg-blue dark:bg-d-olive",
   "bg-peach dark:bg-navy",
@@ -106,5 +114,41 @@ export const benefitsHomePageData = [
     img: "https://drive.google.com/uc?export=view&id=1KjRhAek7oS2qKnFoq-ymeyL1xMGCnh1j",
     title: "24/7 Support",
     text: "Get support from our team anytime",
+  },
+];
+
+export const locationsData = [
+  {
+    image:
+      "https://drive.google.com/uc?export=view&id=13HM0zSuVItMcJbEPuxIT37ePREgnoaq3",
+    name: "Broward Mall",
+    city: "Plantation, Florida",
+    floor: "Next to marshalls",
+    phone: "+8801712345678",
+    hours: "9.00pm - 10.00pm",
+    days: "Monday - Saturday",
+    map: "https://www.google.com/maps/embed/v1/place?q=Broward+Mall,+West+Broward+Boulevard,+Plantation,+FL,+USA&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8",
+  },
+  {
+    image:
+      "https://drive.google.com/uc?export=view&id=1tT2ukhdH7U9C6ypp2yUw-wGWPmizE-Kt",
+    name: "Sawgrass Mall",
+    city: "Sunrise, Florida",
+    floor: "Next to the blue food court",
+    phone: "+8801712345678",
+    hours: "9.00pm - 10.00pm",
+    days: "Monday - Saturday",
+    map: "https://www.google.com/maps/embed/v1/place?q=Sawgrass+Mills,+West+Sunrise+Boulevard,+Sunrise,+FL,+USA&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8",
+  },
+  {
+    image:
+      "https://drive.google.com/uc?export=view&id=14NpFc5R_fJC1hzPTIe-s0AVhNv2kD2Ft",
+    name: "Galleria Mall",
+    city: "Fort Lauderdale, Florida",
+    floor: "Next to the apple store",
+    phone: "+8801712345678",
+    hours: "9.00pm - 10.00pm",
+    days: "Monday - Saturday",
+    map: "https://www.google.com/maps/embed/v1/place?q=Galleria+Mall,+East+Sunrise+Boulevard,+Fort+Lauderdale,+FL,+USA&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8",
   },
 ];

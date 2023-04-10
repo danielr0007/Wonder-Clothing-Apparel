@@ -21,6 +21,7 @@ const Home = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
 
   const clothingData = useFetchHook(productDataApi);
+  console.log(clothingData);
 
   const bigBannerMov = useEffect(() => {
     const bannerTicker = setTimeout(() => {

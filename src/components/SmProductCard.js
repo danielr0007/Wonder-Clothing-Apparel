@@ -6,10 +6,14 @@ const SmProductCard = function (props) {
 
   const themeMode = useSelector((state) => state.themeMode.value);
   return (
-    <div className={themeMode ? " dark" : "w-full mx-auto rounded-3xl"}>
-      <div className="sm:h-[260px] h-[150px] rounded-3xl">
+    <div
+      className={
+        themeMode ? "dark" : "w-full mx-auto rounded-3xl hover:bg-white"
+      }
+    >
+      <div className="sm:h-[260px] h-[150px] rounded-t-3xl">
         <img
-          className=" object-cover w-full h-full rounded-3xl"
+          className=" object-cover w-full h-full rounded-t-3xl"
           src={productpics}
           alt=""
         />
