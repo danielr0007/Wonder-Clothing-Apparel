@@ -47,7 +47,7 @@ const TestimonialSlider = function () {
         },
       },
       {
-        breakpoint: 800,
+        breakpoint: 820,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -55,7 +55,7 @@ const TestimonialSlider = function () {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 640,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,

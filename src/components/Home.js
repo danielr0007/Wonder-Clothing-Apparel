@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { bannerContent, productDataApi } from "../constants";
+import {
+  bannerContent,
+  productDataApi,
+  benefitsHomePageData,
+  productPics,
+} from "../constants";
 import BigBannerCard from "./BigBannerCard";
 import useFetchHook from "../utils/useFetchHook";
 import { useSelector } from "react-redux";
 import BenefitHomeCards from "./BenefitHomeCards";
 import SmProductCard from "./SmProductCard";
-import { benefitsHomePageData } from "../constants";
-import { productPics } from "../constants";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import ImgSlider from "./ImgSlider";
@@ -88,8 +91,8 @@ const Home = () => {
           {/* SMALL BANNER SECTION ///////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
 
-          <div className="lg:w-2/6 pt-9">
-            <div className="lg:py-0 py-2 w-full">
+          <div className="lg:w-2/6 pt-8">
+            <div className="lg:py-0 w-full">
               <p className="py-1 px-5 md:mt-1 inline bg-gradient-to-r from-red to-yellow text-xs text-white rounded-2xl">
                 New Arrivals
               </p>
@@ -103,8 +106,8 @@ const Home = () => {
       {/* BENEFITS SECTION ///////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
 
-      <section className="pt-9 md:pb-7 pb-20 min-h-[335px] px-7 bg-l-beige dark:bg-grey ">
-        <div className="h-full max-w-[1325px] mx-auto grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 justify-items-center gap-9">
+      <section className="pt-8 md:pb-7 pb-20 min-h-[335px] px-7 bg-l-beige dark:bg-grey ">
+        <div className="h-full max-w-[1325px] mx-auto grid lg:grid-cols-4 grid-cols-2 justify-items-center gap-9">
           {[...Array(numberOfBenefitsCards)].map((e, i) => (
             <BenefitHomeCards key={i} cardinfo={benefitsHomePageData[i]} />
           ))}
@@ -113,7 +116,7 @@ const Home = () => {
 
       {/* HOT DEALS SECTION ////////////////////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
-      <section className="pt-6 pb-20 sm:px-7 px-3 bg-l-beige dark:bg-grey ">
+      <section className="md:pt-10 pt-3 md:pb-7 pb-16 sm:px-7 px-3 bg-l-beige dark:bg-grey ">
         <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px] ">
           {/* Section Title */}
           <HomeSecTitleAnimated
@@ -147,7 +150,7 @@ const Home = () => {
 
       {/* PROMOTIONS SECTION ////////////////////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
-      <section className="pt-6 md:pb-24 pb-1">
+      <section className="pt-3 md:pb-8 pb-1">
         <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px]">
           <HomeSecTitleAnimated
             title="Promotions"
@@ -160,7 +163,7 @@ const Home = () => {
 
       {/* POPULAR ITEMS SECTION ////////////////////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
-      <section className="md:pt-6 pt-2 pb-24 sm:px-7 px-3 bg-l-beige dark:bg-grey">
+      <section className="md:pt-6 pt-2 md:pb-11 pb-24 sm:px-7 px-3 bg-l-beige dark:bg-grey">
         <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px]">
           {/* Section Title */}
           <HomeSecTitleAnimated
@@ -194,9 +197,9 @@ const Home = () => {
 
       {/* TESTIMONIALS SECTION ////////////////////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
-      <section className="pt-6 pb-24 sm:px-7 px-3 bg-l-beige dark:bg-grey">
+      <section className="pt-3 pb-24 sm:px-7 px-3 bg-l-beige dark:bg-grey">
         <div className="mx-auto lg:p-0 md:p-8 h-full xl:max-w-[1325px]">
-          <h2 className="mb-20 text-center md:text-5xl text-2xl dark:text-white font-bold">
+          <h2 className="mb-14 text-center md:text-5xl text-2xl dark:text-white font-bold">
             From Our Customers
           </h2>
 
@@ -227,7 +230,7 @@ const Home = () => {
               </h5>
               <div>
                 <input
-                  className="md:py-3 md:px-8 py-2 px-3 rounded-l-xl"
+                  className="md:py-3 md:px-8 py-2 px-2 rounded-l-xl"
                   type="text"
                 />
                 <button className="md:py-3 md:px-4 py-2 px-2 bg-red rounded-r-xl text-white">
