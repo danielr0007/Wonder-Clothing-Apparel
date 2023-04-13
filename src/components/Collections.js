@@ -100,13 +100,17 @@ const Collections = () => {
           {/* Location List Section */}
 
           <div className="col-span-3 lg:pb-0 pb-9 ">
-            <div className="p-2 bg-white rounded-xl shadow-lg dark:bg-l-grey">
-              <ul>
+            <div className="p-2 rounded-xl shadow-lg bg-white dark:bg-l-grey">
+              <ul className="md:block flex items-center gap-2 overflow-scroll">
                 <li
                   onClick={() => {
                     dispatch({ type: "SHOWAll" });
                   }}
-                  className="p-4 text-center rounded-lg text-sm text-navy"
+                  className={
+                    showingProducts.all
+                      ? "p-4 text-center rounded-lg bg-navy text-sm text-white cursor-pointer"
+                      : "p-4 text-center rounded-lg text-sm text-navy cursor-pointer hover:bg-l-grey"
+                  }
                 >
                   All Products
                 </li>
@@ -114,7 +118,11 @@ const Collections = () => {
                   onClick={() => {
                     dispatch({ type: "SHOWSMARTPHONES" });
                   }}
-                  className="p-4 text-center rounded-lg text-sm text-navy"
+                  className={
+                    showingProducts.smartphones
+                      ? "p-4 text-center rounded-lg bg-navy text-sm text-white cursor-pointer"
+                      : "p-4 text-center rounded-lg text-sm text-navy cursor-pointer hover:bg-l-grey"
+                  }
                 >
                   Smartphones
                 </li>
@@ -122,7 +130,11 @@ const Collections = () => {
                   onClick={() => {
                     dispatch({ type: "SHOWLAPTOPS" });
                   }}
-                  className="p-4 text-center rounded-lg text-sm text-navy"
+                  className={
+                    showingProducts.laptops
+                      ? "p-4 text-center rounded-lg bg-navy text-sm text-white cursor-pointer"
+                      : "p-4 text-center rounded-lg text-sm text-navy cursor-pointer hover:bg-l-grey"
+                  }
                 >
                   Laptops
                 </li>
@@ -130,7 +142,11 @@ const Collections = () => {
                   onClick={() => {
                     dispatch({ type: "SHOWFRAGRANCES" });
                   }}
-                  className="p-4 text-center rounded-lg text-sm text-navy"
+                  className={
+                    showingProducts.fragances
+                      ? "p-4 text-center rounded-lg bg-navy text-sm text-white cursor-pointer"
+                      : "p-4 text-center rounded-lg text-sm text-navy cursor-pointer hover:bg-l-grey"
+                  }
                 >
                   Fragances
                 </li>
@@ -138,7 +154,11 @@ const Collections = () => {
                   onClick={() => {
                     dispatch({ type: "SHOWSKINCARE" });
                   }}
-                  className="p-4 text-center rounded-lg text-sm text-navy"
+                  className={
+                    showingProducts.skincare
+                      ? "p-4 text-center rounded-lg bg-navy text-sm text-white cursor-pointer"
+                      : "p-4 text-center rounded-lg text-sm text-navy cursor-pointer hover:bg-l-grey"
+                  }
                 >
                   Skincare
                 </li>
@@ -146,7 +166,11 @@ const Collections = () => {
                   onClick={() => {
                     dispatch({ type: "SHOWGROCERIES" });
                   }}
-                  className="p-4 text-center rounded-lg text-sm text-navy"
+                  className={
+                    showingProducts.groceries
+                      ? "p-4 text-center rounded-lg bg-navy text-sm text-white cursor-pointer"
+                      : "p-4 text-center rounded-lg text-sm text-navy cursor-pointer hover:bg-l-grey"
+                  }
                 >
                   Groceries
                 </li>
@@ -154,7 +178,11 @@ const Collections = () => {
                   onClick={() => {
                     dispatch({ type: "SHOWHOMEDECORATION" });
                   }}
-                  className="p-4 text-center rounded-lg text-sm text-navy"
+                  className={
+                    showingProducts.homedecorations
+                      ? "p-4 text-center rounded-lg bg-navy text-sm text-white cursor-pointer"
+                      : "p-4 text-center rounded-lg text-sm text-navy cursor-pointer hover:bg-l-grey"
+                  }
                 >
                   Home Decoration
                 </li>

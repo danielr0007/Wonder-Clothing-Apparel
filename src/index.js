@@ -10,6 +10,7 @@ import StoreLocation from "./components/StoreLocation";
 import Contact from "./components/Contact";
 import WishList from "./components/WishList";
 import SignIn from "./components/SignIn";
+import ProductPage from "./components/ProductPage";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/sign-in",
         element: <SignIn />,
+      },
+      {
+        path: "/product/:Id",
+        element: <ProductPage />,
       },
     ],
   },
