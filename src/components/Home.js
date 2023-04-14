@@ -6,7 +6,6 @@ import {
   productPics,
 } from "../constants";
 import BigBannerCard from "./BigBannerCard";
-import useFetchHook from "../utils/useFetchHook";
 import { useSelector } from "react-redux";
 import BenefitHomeCards from "./BenefitHomeCards";
 import SmProductCard from "./SmProductCard";
@@ -22,9 +21,18 @@ const Home = () => {
   const [overlay, setOverlay] = useState(false);
   const numberOfBenefitsCards = 4;
   const themeMode = useSelector((state) => state.themeMode.value);
+  const [clothingData, setClothingData] = useState(null);
 
-  const clothingData = useFetchHook(productDataApi);
-  console.log(clothingData);
+  useEffect(() => {
+    async function getProductData() {
+      let response = await fetch(productDataApi);
+      let data = await response.json();
+      let product = data;
+
+      setClothingData(product);
+    }
+    getProductData();
+  }, []);
 
   const bigBannerMov = useEffect(() => {
     const bannerTicker = setTimeout(() => {
@@ -127,11 +135,12 @@ const Home = () => {
           <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5">
             {clothingData?.products.slice(0, 8).map((product, i) => {
               return (
-                <SmProductCard
-                  key={product?.id}
-                  productinfo={product}
-                  productpics={productPics[i]}
-                />
+                <Link to={"/product/" + product.id} key={product?.id}>
+                  <SmProductCard
+                    productinfo={product}
+                    productpics={productPics[i]}
+                  />
+                </Link>
               );
             })}
           </div>
@@ -174,11 +183,12 @@ const Home = () => {
           <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5">
             {clothingData?.products.slice(10, 18).map((product, i) => {
               return (
-                <SmProductCard
-                  key={product?.id}
-                  productinfo={product}
-                  productpics={productPics.slice(10, 18)[i]}
-                />
+                <Link to={"/product/" + product.id} key={product?.id}>
+                  <SmProductCard
+                    productinfo={product}
+                    productpics={productPics.slice(10, 18)[i]}
+                  />
+                </Link>
               );
             })}
           </div>

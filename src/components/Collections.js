@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { productDataApi, productPics } from "../constants";
 import SmProductCard from "./SmProductCard";
-import useFetchHook from "../utils/useFetchHook";
-import { useReducer } from "react";
+import { useReducer, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -81,6 +81,7 @@ const reducer = (state, action) => {
 
 const Collections = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
+  const [clothingData, setClothingData] = useState(null);
 
   const [showingProducts, dispatch] = useReducer(reducer, {
     all: true,
@@ -92,7 +93,16 @@ const Collections = () => {
     homedecorations: false,
   });
 
-  const clothingData = useFetchHook(productDataApi);
+  useEffect(() => {
+    async function getProductData() {
+      let response = await fetch(productDataApi);
+      let data = await response.json();
+      let product = data;
+
+      setClothingData(product);
+    }
+    getProductData();
+  }, []);
   return (
     <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
       <section className={`pt-6 lg:px-7 md:px-10 px-3 bg-l-beige dark:bg-grey`}>
@@ -194,11 +204,13 @@ const Collections = () => {
             <div className="col-span-9 grid lg:grid-cols-3 grid-cols-2 gap-5">
               {clothingData?.products.slice(0, 30).map((product, i) => {
                 return (
-                  <SmProductCard
-                    key={product?.id}
-                    productinfo={product}
-                    productpics={productPics[i]}
-                  />
+                  <Link to={"/product/" + product.id} key={product?.id}>
+                    <SmProductCard
+                      key={product?.id}
+                      productinfo={product}
+                      productpics={productPics[i]}
+                    />
+                  </Link>
                 );
               })}
             </div>
@@ -212,11 +224,13 @@ const Collections = () => {
                 )
                 .map((product, i) => {
                   return (
-                    <SmProductCard
-                      key={product?.id}
-                      productinfo={product}
-                      productpics={productPics[i]}
-                    />
+                    <Link to={"/product/" + product.id} key={product?.id}>
+                      <SmProductCard
+                        key={product?.id}
+                        productinfo={product}
+                        productpics={productPics[i]}
+                      />
+                    </Link>
                   );
                 })}
             </div>
@@ -228,11 +242,13 @@ const Collections = () => {
                 .filter((product) => Object.values(product).includes("laptops"))
                 .map((product, i) => {
                   return (
-                    <SmProductCard
-                      key={product?.id}
-                      productinfo={product}
-                      productpics={productPics[5 + i]}
-                    />
+                    <Link to={"/product/" + product.id} key={product?.id}>
+                      <SmProductCard
+                        key={product?.id}
+                        productinfo={product}
+                        productpics={productPics[5 + i]}
+                      />
+                    </Link>
                   );
                 })}
             </div>
@@ -246,11 +262,13 @@ const Collections = () => {
                 )
                 .map((product, i) => {
                   return (
-                    <SmProductCard
-                      key={product?.id}
-                      productinfo={product}
-                      productpics={productPics[10 + i]}
-                    />
+                    <Link to={"/product/" + product.id} key={product?.id}>
+                      <SmProductCard
+                        key={product?.id}
+                        productinfo={product}
+                        productpics={productPics[10 + i]}
+                      />
+                    </Link>
                   );
                 })}
             </div>
@@ -264,11 +282,13 @@ const Collections = () => {
                 )
                 .map((product, i) => {
                   return (
-                    <SmProductCard
-                      key={product?.id}
-                      productinfo={product}
-                      productpics={productPics[15 + i]}
-                    />
+                    <Link to={"/product/" + product.id} key={product?.id}>
+                      <SmProductCard
+                        key={product?.id}
+                        productinfo={product}
+                        productpics={productPics[15 + i]}
+                      />
+                    </Link>
                   );
                 })}
             </div>
@@ -282,11 +302,13 @@ const Collections = () => {
                 )
                 .map((product, i) => {
                   return (
-                    <SmProductCard
-                      key={product?.id}
-                      productinfo={product}
-                      productpics={productPics[20 + i]}
-                    />
+                    <Link to={"/product/" + product.id} key={product?.id}>
+                      <SmProductCard
+                        key={product?.id}
+                        productinfo={product}
+                        productpics={productPics[20 + i]}
+                      />
+                    </Link>
                   );
                 })}
             </div>
@@ -300,11 +322,13 @@ const Collections = () => {
                 )
                 .map((product, i) => {
                   return (
-                    <SmProductCard
-                      key={product?.id}
-                      productinfo={product}
-                      productpics={productPics[25 + i]}
-                    />
+                    <Link to={"/product/" + product.id} key={product?.id}>
+                      <SmProductCard
+                        key={product?.id}
+                        productinfo={product}
+                        productpics={productPics[25 + i]}
+                      />
+                    </Link>
                   );
                 })}
             </div>

@@ -1,12 +1,22 @@
 import { useEffect, useState } from "react";
 import { productDataApi, smBannerPics, smBannerCardColors } from "../constants";
 import SmallBannerCards from "./SmallBannerCards";
-import useFetchHook from "../utils/useFetchHook";
 
 const SmallBannerSlider = function () {
-  const clothingData = useFetchHook(productDataApi);
   const [ticker, setTicker] = useState(0);
   const [ticker2, setTicker2] = useState(0);
+  const [clothingData, setClothingData] = useState(null);
+
+  useEffect(() => {
+    async function getProductData() {
+      let response = await fetch(productDataApi);
+      let data = await response.json();
+      let product = data;
+
+      setClothingData(product);
+    }
+    getProductData();
+  }, []);
 
   const smallBannerCardsMov = useEffect(() => {
     if (window.innerWidth < 1024) return;
