@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggle } from "../utils/themeMode";
 import { useEffect, useState } from "react";
 import MobileMenu from "./MobileMenu";
+import { show, remove } from "../utils/search";
 
 const Header = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
@@ -64,7 +65,10 @@ const Header = () => {
 
           <div>
             <ul className="h-full flex md:gap-9 gap-4 items-center ">
-              <li className="flex items-center gap-2 dark:text-l-grey">
+              <li
+                onClick={() => dispatch(show())}
+                className="flex items-center gap-2 dark:text-l-grey cursor-pointer"
+              >
                 <BsSearch />
                 <p className="md:block hidden">Search</p>
               </li>

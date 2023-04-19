@@ -15,12 +15,14 @@ import ImgSlider from "./ImgSlider";
 import HomeSecTitleAnimated from "./HomeSecTitleAnimated";
 import TestimonialSlider from "./TestimonialSlider";
 import SmallBannerSlider from "./SmallBannerSlider";
+import Coupon from "./Coupon";
+import SearchPage from "./SearchPage";
 
 const Home = () => {
+  const themeMode = useSelector((state) => state.themeMode.value);
+  const showSearch = useSelector((state) => state.search.value);
   const [ticker, setTicker] = useState(0);
   const [overlay, setOverlay] = useState(false);
-  const numberOfBenefitsCards = 4;
-  const themeMode = useSelector((state) => state.themeMode.value);
   const [clothingData, setClothingData] = useState(null);
 
   useEffect(() => {
@@ -52,7 +54,7 @@ const Home = () => {
   }, [ticker]);
 
   return (
-    <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
+    <div className={`${themeMode ? "bg-grey dark " : "bg-l-beige "}`}>
       <section
         className={`pt-6 pb-7 lg:px-7 md:px-5 px-3 bg-l-beige dark:bg-grey`}
       >
@@ -116,7 +118,7 @@ const Home = () => {
 
       <section className="pt-8 md:pb-7 pb-20 min-h-[335px] px-7 bg-l-beige dark:bg-grey ">
         <div className="h-full max-w-[1325px] mx-auto grid lg:grid-cols-4 grid-cols-2 justify-items-center gap-9">
-          {[...Array(numberOfBenefitsCards)].map((e, i) => (
+          {[...Array(4)].map((e, i) => (
             <BenefitHomeCards key={i} cardinfo={benefitsHomePageData[i]} />
           ))}
         </div>
@@ -222,35 +224,10 @@ const Home = () => {
 
       <section className="pt-6 pb-24 sm:px-7 px-3 bg-l-beige dark:bg-grey">
         <div className="mx-auto lg:p-12 md:p-8 h-full xl:max-w-[1325px]">
-          <div className="md:h-96 h-[550px] bg-navy rounded-2xl md:grid grid-cols-10">
-            <div className="col-span-4 md:pb-0 pb-5 flex justify-center items-center">
-              <lord-icon
-                src="https://cdn.lordicon.com/pimvysaa.json"
-                trigger="hover"
-                style={{ width: "250px", height: "250px", display: "block" }}
-              ></lord-icon>
-            </div>
-
-            <div className="col-span-6 flex flex-col justify-center md:items-start items-center">
-              <h2 className="md:pb-4 pb-6 lg:text-5xl md:text-4xl text-3xl md:text-left text-center font-bold text-white">
-                Get <span className="text-yellow">20%</span> Off Discount Coupon
-              </h2>
-              <h5 className="lg:text-2xl md:text-xl text-base text-white md:pb-10 pb-11">
-                by subscribing to our Newsletter
-              </h5>
-              <div>
-                <input
-                  className="md:py-3 md:px-8 py-2 px-2 rounded-l-xl"
-                  type="text"
-                />
-                <button className="md:py-3 md:px-4 py-2 px-2 bg-red rounded-r-xl text-white">
-                  Get Coupon
-                </button>
-              </div>
-            </div>
-          </div>
+          <Coupon />
         </div>
       </section>
+      <SearchPage data={clothingData} show={showSearch} />
     </div>
   );
 };

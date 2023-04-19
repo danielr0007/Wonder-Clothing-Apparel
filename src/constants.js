@@ -1,10 +1,16 @@
+import brunette from "./assets/girl-shopping.png";
+import vrGuy from "./assets/guy-vr.png";
+import asianGirlShopping from "./assets/shopping_model.png";
+import whiteGuyOnPhone from "./assets/man-with-phone.png";
+
+const googlePicUrl = "https://drive.google.com/uc?export=view&id=";
+
 export const bannerContent = [
   {
     headline: "Elegant Styles",
     key: "1",
     subheadline: "We are offering the Fashion That Fits You Best. Grab Now!",
-    image:
-      "https://drive.google.com/uc?export=view&id=1LvSgyJ-n5BAybx5r2N_l3zV2xEQJbRAU",
+    image: asianGirlShopping,
     background: "bg-b-yellow dark:bg-d-purple",
     positioningandscale:
       "lg:w-[380px] md:w-[345px] w-[210px] absolute bottom-0 md:right-3 right-[50%] md:translate-x-0 translate-x-1/2",
@@ -14,8 +20,7 @@ export const bannerContent = [
     key: "2",
     subheadline:
       "Elevate Your Style with our brand new products, Purchase Today!",
-    image:
-      "https://drive.google.com/uc?export=view&id=1JQV-_1y2m02k5gw0VVnL5Rhqi2ubc12x",
+    image: vrGuy,
     background: "bg-l-blue dark:bg-navy",
     positioningandscale:
       "lg:w-[400px] md:w-[360px] w-[265px] absolute bottom-0 md:right-0 right-0",
@@ -25,8 +30,7 @@ export const bannerContent = [
     key: "3",
     subheadline:
       "You one stop place to Shop with Confidence. Shopping is Easy!",
-    image:
-      "https://drive.google.com/uc?export=view&id=1SmafDmY9XNKQNwnzJ3UamQvOtyjAYaOE",
+    image: brunette,
     background: "bg-water dark:bg-d-green",
     positioningandscale:
       "lg:w-[500px] md:w-[450px] w-[285px] absolute bottom-0 md:right-3 right-[50%] md:translate-x-0 translate-x-1/2",
@@ -35,8 +39,7 @@ export const bannerContent = [
     headline: "Stylish Look",
     key: "4",
     subheadline: "Remarks the landmark of Always On Trend courtesy, Hurry Up!",
-    image:
-      "https://drive.google.com/uc?export=view&id=1PkLv-Q6vAneoTs6NJ63Huf7olEV-ZoCa",
+    image: whiteGuyOnPhone,
     background: "bg-b-olive dark:bg-brown",
     positioningandscale:
       "lg:w-[380px] md:w-[345px] w-[200px] absolute bottom-0 md:right-3 right-[50%] md:translate-x-0 translate-x-1/2",
@@ -151,4 +154,11 @@ export const locationsData = [
     days: "Monday - Saturday",
     map: "https://www.google.com/maps/embed/v1/place?q=Galleria+Mall,+East+Sunrise+Boulevard,+Fort+Lauderdale,+FL,+USA&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8",
   },
+];
+
+export const testimonialPics = [
+  googlePicUrl + "1KUWnsycGb9bEwg28O6Ph7ap3Vs_djG1F",
+  googlePicUrl + "1SjdYuQqbrBO1vcjm3wEdQMJOcqMPeGie",
+  googlePicUrl + "1OizFS-YjUmXQjzS56qASsGvhl0_mHxwb",
+  googlePicUrl + "1LuO4Ee6IBAWHBVc1BAUxzcap_XITOU-h",
 ];

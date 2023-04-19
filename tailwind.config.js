@@ -30,6 +30,7 @@ module.exports = {
       "d-green": "#355445",
       brown: "#5D4D3F",
       "d-olive": "#605D42",
+      "t-black": "rgba(0, 0, 0, 0.9)",
     },
     extend: {},
   },

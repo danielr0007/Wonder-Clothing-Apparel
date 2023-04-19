@@ -109,9 +109,9 @@ const Collections = () => {
         <div className="max-w-[1250px] mx-auto lg:grid grid-cols-12 gap-8">
           {/* Location List Section */}
 
-          <div className="col-span-3 lg:pb-0 pb-9 ">
+          <div className="col-span-3 lg:pb-0 pb-9">
             <div className="p-2 rounded-xl shadow-lg bg-white dark:bg-l-grey">
-              <ul className="md:block flex items-center gap-2 overflow-scroll">
+              <ul className="md:block flex items-center gap-2 md:overflow-hidden overflow-scroll">
                 <li
                   onClick={() => {
                     dispatch({ type: "SHOWAll" });

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { RiStarSFill, RiStarSLine } from "react-icons/ri";
 
-const SmProductCard = function (props) {
+const SearchProductCard = function (props) {
   const { productinfo, productpics } = props;
 
   const themeMode = useSelector((state) => state.themeMode.value);
@@ -19,9 +19,9 @@ const SmProductCard = function (props) {
         />
       </div>
 
-      <div className="p-4">
+      <div className="p-4 text-white hover:text-black">
         <p className="pb-1 text-sm text-red">{productinfo.category}</p>
-        <h4 className="md:text-lg text-base dark:text-l-beige md:min-h-[55px] min-h-[70px]">
+        <h4 className="md:text-lg text-base md:min-h-[55px] min-h-[70px]">
           {productinfo.title}
         </h4>
         <div className="mt-6 md:flex justify-between">
@@ -44,4 +44,4 @@ const SmProductCard = function (props) {
   );
 };
 
-export default SmProductCard;
+export default SearchProductCard;

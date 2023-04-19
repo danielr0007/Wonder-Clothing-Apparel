@@ -2,6 +2,7 @@ import { RiStarSFill } from "react-icons/ri";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { testimonialPics } from "../constants";
 
 const TestimonialSlider = function () {
   const testimonialData = [
@@ -67,9 +68,10 @@ const TestimonialSlider = function () {
   return (
     <div>
       <Slider {...settings}>
-        {testimonialData.map((slideIndex) => (
+        {testimonialData.map((slideIndex, i) => (
           <TestimonialCard
             name={slideIndex.name}
+            pic={testimonialPics[i]}
             text={slideIndex.text}
             key={slideIndex.id}
           />
@@ -83,8 +85,8 @@ const TestimonialCard = (props) => {
   return (
     <div className="min-w-[32.2%] lg:min-h-[355px] md:min-h-[400px] mx-5 px-5 pt-8 pb-14 text-center bg-mute-green dark:bg-d-purple rounded-lg">
       <div className="pb-6 w-10/12 mx-auto flex flex-col justify-center items-center">
-        <div className="w-16 h-16 rounded-full bg-red mx-auto"></div>
-        <h4 className="pt-2 pb-1 text-xl font-semibold dark:text-white">
+        <img className="w-16 h-16 rounded-full mx-auto" src={props.pic} />
+        <h4 className="pt-3 pb-1 text-xl font-semibold dark:text-white">
           {props.name}
         </h4>
         <div className="flex text-yellow">
