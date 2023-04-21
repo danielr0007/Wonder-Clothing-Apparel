@@ -8,10 +8,20 @@ import { show, remove } from "../utils/search";
 const SearchPage = (props) => {
   const productData = props?.data?.products;
   const [dataAvailable, setDataAvailable] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   console.log(productData);
-  const [searchQuery, setSearchQuery] = useState();
+  console.log(Boolean(productData));
 
   const dispatch = useDispatch();
+
+  function validateInput(input) {
+    // Check if input is not empty and contains non-whitespace characters
+    if (/\S/.test(input)) {
+      return false; // input is valid
+    } else {
+      return true; // input is invalid
+    }
+  }
 
   useEffect(() => {
     if (productData === undefined) {
@@ -34,7 +44,7 @@ const SearchPage = (props) => {
         </h1>
         {/* INPUT////// */}
         <input
-          className="w-2/6 py-3 mb-14 rounded-lg mx-auto block"
+          className="w-2/6 pl-3 py-3 mb-14 rounded-lg mx-auto block text-xl"
           type="text"
           value={searchQuery}
           onChange={(e) => {
@@ -42,24 +52,49 @@ const SearchPage = (props) => {
           }}
         />
 
-        {/* RESULTS/////// */}
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5">
-          {/* No items UI */}
-          {dataAvailable || (
+          {/* No items UI
+          {Boolean(productData) || (
             <h4 className="text-3xl text-white">No Items Found!</h4>
           )}
-          {/* Products results UI */}
-          {dataAvailable &&
-            productData?.slice(10, 30)?.map((product, i) => {
-              return (
-                <Link to={"/product/" + product.id} key={product?.id}>
-                  <SearchProductCard
-                    productinfo={product}
-                    productpics={productPics.slice(10, 30)[i]}
-                  />
-                </Link>
-              );
-            })}
+          Products results UI
+          {Boolean(productData) &&
+            productData
+              .filter((product) =>
+                product.title.toLowerCase().includes(searchQuery)
+              )
+              .map((product) => {
+                return (
+                  <Link to={"/product/" + product.id} key={product?.id}>
+                    <SearchProductCard
+                      key={product?.id}
+                      productinfo={product}
+                      productpics={productPics[product?.id - 1]}
+                    />
+                  </Link>
+                );
+              })} */}
+          {Boolean(productData) === false || validateInput(searchQuery) ? (
+            <h4 className="text-3xl text-white">No Items Found!</h4>
+          ) : (
+            productData
+              .filter(
+                (product) =>
+                  product.title.toLowerCase().includes(searchQuery) ||
+                  product.category.toLowerCase().includes(searchQuery)
+              )
+              .map((product) => {
+                return (
+                  <Link to={"/product/" + product.id} key={product?.id}>
+                    <SearchProductCard
+                      key={product?.id}
+                      productinfo={product}
+                      productpics={productPics[product?.id - 1]}
+                    />
+                  </Link>
+                );
+              })
+          )}
         </div>
       </div>
       <div

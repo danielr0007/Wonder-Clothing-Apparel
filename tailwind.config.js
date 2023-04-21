@@ -31,6 +31,7 @@ module.exports = {
       brown: "#5D4D3F",
       "d-olive": "#605D42",
       "t-black": "rgba(0, 0, 0, 0.9)",
+      "t-white": "rgba(255,255,255, 0.90)",
     },
     extend: {},
   },

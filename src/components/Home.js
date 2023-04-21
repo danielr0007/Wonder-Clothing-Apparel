@@ -17,6 +17,7 @@ import TestimonialSlider from "./TestimonialSlider";
 import SmallBannerSlider from "./SmallBannerSlider";
 import Coupon from "./Coupon";
 import SearchPage from "./SearchPage";
+import CartIcon from "./CartIcon";
 
 const Home = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
@@ -55,6 +56,7 @@ const Home = () => {
 
   return (
     <div className={`${themeMode ? "bg-grey dark " : "bg-l-beige "}`}>
+      <CartIcon />
       <section
         className={`pt-6 pb-7 lg:px-7 md:px-5 px-3 bg-l-beige dark:bg-grey`}
       >

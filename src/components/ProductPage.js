@@ -231,7 +231,7 @@ const ProductPage = () => {
                   <Link to={"/product/" + product.id} key={product?.id}>
                     <SmProductCard
                       productinfo={product}
-                      productpics={productPics.slice(2, 6)[i]}
+                      productpics={productPics[product?.id - 1]}
                     />
                   </Link>
                 );

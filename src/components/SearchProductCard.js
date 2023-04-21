@@ -8,7 +8,9 @@ const SearchProductCard = function (props) {
   return (
     <div
       className={
-        themeMode ? "dark" : "w-full mx-auto rounded-3xl hover:bg-white"
+        themeMode
+          ? "dark"
+          : "w-full mx-auto rounded-3xl hover:bg-white text-white hover:text-black"
       }
     >
       <div className="sm:h-[260px] h-[150px] rounded-t-3xl">
@@ -19,7 +21,7 @@ const SearchProductCard = function (props) {
         />
       </div>
 
-      <div className="p-4 text-white hover:text-black">
+      <div className="p-4">
         <p className="pb-1 text-sm text-red">{productinfo.category}</p>
         <h4 className="md:text-lg text-base md:min-h-[55px] min-h-[70px]">
           {productinfo.title}
