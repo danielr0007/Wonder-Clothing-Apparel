@@ -2,7 +2,10 @@ import { useSelector } from "react-redux";
 import { productDataApi, productPics } from "../constants";
 import SmProductCard from "./SmProductCard";
 import { useReducer, useState, useEffect } from "react";
+import SearchPage from "./SearchPage";
+import CartSideBar from "./CartSideBar";
 import { Link } from "react-router-dom";
+import CartIcon from "./CartIcon";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -81,6 +84,7 @@ const reducer = (state, action) => {
 
 const Collections = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
+  const showSearch = useSelector((state) => state.search.value);
   const [clothingData, setClothingData] = useState(null);
 
   const [showingProducts, dispatch] = useReducer(reducer, {
@@ -105,6 +109,7 @@ const Collections = () => {
   }, []);
   return (
     <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
+      <CartIcon />
       <section className={`pt-6 lg:px-7 md:px-10 px-3 bg-l-beige dark:bg-grey`}>
         <div className="max-w-[1250px] mx-auto lg:grid grid-cols-12 gap-8">
           {/* Location List Section */}
@@ -335,6 +340,8 @@ const Collections = () => {
           )}
         </div>
       </section>
+      <SearchPage data={clothingData} show={showSearch} />
+      <CartSideBar />
     </div>
   );
 };

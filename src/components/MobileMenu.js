@@ -1,4 +1,5 @@
 import { FaOpencart, FaRegHeart, FaMoon } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const MobileMenu = function (props) {
   return (
@@ -23,7 +24,8 @@ const MenuLink = function (props) {
             key={i}
             className="py-2 px-4 text-sm flex items-center gap-3 rounded-2xl dark:text-navy hover:bg-l-beige"
           >
-            <span>{props.mobileMenuLinks.children[i]}</span> {link.name}
+            <span>{props.mobileMenuLinks.children[i]}</span>
+            <Link to={link.path}>{link.name}</Link>
           </li>
         );
       })}

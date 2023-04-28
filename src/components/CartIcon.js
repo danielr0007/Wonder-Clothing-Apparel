@@ -1,10 +1,17 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { toggle } from "../utils/sideCartVisible";
 
 const CartIcon = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
   const cartCount = useSelector((state) => state.cart.items);
+
+  const dispatch = useDispatch();
+
   return (
-    <div className="fixed right-7 top-60 md:flex flex-col animate-bounce hidden">
+    <div
+      onClick={() => dispatch(toggle())}
+      className="fixed right-7 top-60 md:flex flex-col animate-bounce hidden cursor-pointer"
+    >
       <lord-icon
         src="https://cdn.lordicon.com/xhbsnkyp.json"
         trigger="loop"

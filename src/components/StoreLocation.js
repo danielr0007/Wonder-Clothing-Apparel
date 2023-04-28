@@ -1,10 +1,26 @@
 import { useSelector } from "react-redux";
 import CustomLocationComponent from "./CustomLocationComponent";
-import { locationsData } from "../constants";
-import { useState } from "react";
+import { locationsData, productDataApi } from "../constants";
+import { useState, useEffect } from "react";
+import CartIcon from "./CartIcon";
+import SearchPage from "./SearchPage";
+import CartSideBar from "./CartSideBar";
 
 const StoreLocation = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
+  const showSearch = useSelector((state) => state.search.value);
+  const [clothingData, setClothingData] = useState(null);
+
+  useEffect(() => {
+    async function getProductData() {
+      let response = await fetch(productDataApi);
+      let data = await response.json();
+      let product = data;
+
+      setClothingData(product);
+    }
+    getProductData();
+  }, []);
 
   const [locationShown, setLocationShown] = useState({
     broward: true,
@@ -48,6 +64,7 @@ const StoreLocation = () => {
 
   return (
     <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
+      <CartIcon />
       <section className={`pt-6 lg:px-7 md:px-10 px-3 bg-l-beige dark:bg-grey`}>
         <div className="max-w-[1250px] mx-auto lg:grid grid-cols-12 gap-10">
           {/* Location List Section */}
@@ -92,6 +109,8 @@ const StoreLocation = () => {
           </div>
         </div>
       </section>
+      <SearchPage data={clothingData} show={showSearch} />
+      <CartSideBar />
     </div>
   );
 };

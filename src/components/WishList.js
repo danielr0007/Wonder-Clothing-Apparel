@@ -1,15 +1,28 @@
 import { useSelector } from "react-redux";
 import WishListCard from "./WishListCard";
 import { useState, useEffect } from "react";
-import { productPics } from "../constants";
+import { productPics, productDataApi } from "../constants";
 import { Link } from "react-router-dom";
 import CartIcon from "./CartIcon";
+import SearchPage from "./SearchPage";
+import CartSideBar from "./CartSideBar";
 
 const WishList = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
+  const showSearch = useSelector((state) => state.search.value);
   const wishListProducts = useSelector((state) => state.wishList.items);
+  const [clothingData, setClothingData] = useState(null);
 
-  console.log(wishListProducts);
+  useEffect(() => {
+    async function getProductData() {
+      let response = await fetch(productDataApi);
+      let data = await response.json();
+      let product = data;
+
+      setClothingData(product);
+    }
+    getProductData();
+  }, []);
 
   return (
     <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
@@ -54,6 +67,8 @@ const WishList = () => {
           )}
         </div>
       </section>
+      <SearchPage data={clothingData} show={showSearch} />
+      <CartSideBar />
     </div>
   );
 };

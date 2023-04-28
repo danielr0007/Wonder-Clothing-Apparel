@@ -18,12 +18,15 @@ const Header = () => {
   const mobileMenuLinks = [
     {
       name: "Collections",
+      path: "collections",
     },
     {
       name: "Store Location",
+      path: "location",
     },
     {
       name: "Contact",
+      path: "contact",
     },
   ];
 

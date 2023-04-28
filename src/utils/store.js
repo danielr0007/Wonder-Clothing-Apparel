@@ -3,6 +3,7 @@ import themeModeSlice from "./themeMode";
 import cartSlice from "./cart";
 import wishSlice from "./wishList";
 import searchSlice from "./search";
+import sideCartVisibleSlice from "./sideCartVisible";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     cart: cartSlice,
     wishList: wishSlice,
     search: searchSlice,
+    sideCartVisible: sideCartVisibleSlice,
   },
 });
 

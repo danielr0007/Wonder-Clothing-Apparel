@@ -18,6 +18,7 @@ import SmallBannerSlider from "./SmallBannerSlider";
 import Coupon from "./Coupon";
 import SearchPage from "./SearchPage";
 import CartIcon from "./CartIcon";
+import CartSideBar from "./CartSideBar";
 
 const Home = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
@@ -230,6 +231,7 @@ const Home = () => {
         </div>
       </section>
       <SearchPage data={clothingData} show={showSearch} />
+      <CartSideBar />
     </div>
   );
 };

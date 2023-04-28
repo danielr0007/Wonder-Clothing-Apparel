@@ -53,27 +53,6 @@ const SearchPage = (props) => {
         />
 
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5">
-          {/* No items UI
-          {Boolean(productData) || (
-            <h4 className="text-3xl text-white">No Items Found!</h4>
-          )}
-          Products results UI
-          {Boolean(productData) &&
-            productData
-              .filter((product) =>
-                product.title.toLowerCase().includes(searchQuery)
-              )
-              .map((product) => {
-                return (
-                  <Link to={"/product/" + product.id} key={product?.id}>
-                    <SearchProductCard
-                      key={product?.id}
-                      productinfo={product}
-                      productpics={productPics[product?.id - 1]}
-                    />
-                  </Link>
-                );
-              })} */}
           {Boolean(productData) === false || validateInput(searchQuery) ? (
             <h4 className="text-3xl text-white">No Items Found!</h4>
           ) : (
