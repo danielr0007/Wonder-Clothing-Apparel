@@ -20,7 +20,7 @@ function WishListCard(props) {
     <div
       onMouseEnter={showCardB}
       onMouseLeave={removeCardB}
-      className="p-4 flex gap-6 bg-white rounded-lg relative"
+      className="p-4 flex gap-6 bg-white rounded-lg relative dark:bg-d-beige"
     >
       <div className="basis-2/6">
         <img
@@ -31,17 +31,17 @@ function WishListCard(props) {
       </div>
 
       <div className="basis-4/6 w-full flex flex-col justify-between">
-        <div>
+        <div className="dark:text-black">
           <p className="pb-1 text-sm text-red">{props.category}</p>
-          <h4 className="text-sm dark:text-l-beige">{props.title}</h4>
+          <h4 className="text-sm">{props.title}</h4>
         </div>
 
-        <p className="md:pb-0 pb-2 md:text-lg text-base font-bold dark:text-l-beige">
+        <p className="md:pb-0 pb-2 md:text-lg text-base font-bold dark:text-black">
           ${props.price}
         </p>
 
-        <div className="dark:text-l-beige flex justify-between">
-          <span className="flex text-b-yellow">
+        <div className="dark:text-black flex justify-between">
+          <span className="flex text-b-yellow dark:text-white">
             <RiStarSFill />
             <RiStarSFill />
             <RiStarSFill />
@@ -66,7 +66,7 @@ const CardOverlay = function (props) {
       // onMouseOut={props.removeFunction}
       className={`absolute ${
         props.showTrigger ? "opacity-100" : "opacity-0"
-      } rounded-lg top-0 bottom-0 left-0 right-0 text-sm bg-t-white flex justify-center items-center transition-opacity ease-in duration-150`}
+      } rounded-lg top-0 bottom-0 left-0 right-0 text-sm bg-t-white dark:bg-t-black flex justify-center items-center transition-opacity ease-in duration-150`}
     >
       <div className="w-full flex justify-center gap-3">
         <button
@@ -74,7 +74,7 @@ const CardOverlay = function (props) {
             dispatch(addItem(props.product));
             dispatch(removeFromWish(props.product));
           }}
-          className="py-3 w-4/6 rounded-md bg-blue text-white"
+          className="py-3 w-4/6 rounded-md bg-blue dark:bg-navy text-white"
         >
           Add to Cart
         </button>
@@ -82,7 +82,7 @@ const CardOverlay = function (props) {
           onClick={() => dispatch(removeFromWish(props.product))}
           className="py-3 px-5 rounded-md bg-red"
         >
-          <BsFillTrash3Fill className="text-xl text-white" />
+          <BsFillTrash3Fill className="text-xl text-white dark:text-black" />
         </button>
       </div>
     </div>

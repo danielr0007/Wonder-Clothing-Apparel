@@ -9,8 +9,6 @@ const SearchPage = (props) => {
   const productData = props?.data?.products;
   const [dataAvailable, setDataAvailable] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  console.log(productData);
-  console.log(Boolean(productData));
 
   const dispatch = useDispatch();
 

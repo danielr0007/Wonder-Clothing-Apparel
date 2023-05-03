@@ -27,6 +27,7 @@ const Home = () => {
   const [overlay, setOverlay] = useState(false);
   const [clothingData, setClothingData] = useState(null);
 
+  // ! Fetches data from API and sets it in clothingData state variable
   useEffect(() => {
     async function getProductData() {
       let response = await fetch(productDataApi);
@@ -37,7 +38,9 @@ const Home = () => {
     }
     getProductData();
   }, []);
+  console.log(clothingData);
 
+  // ! Big banner slide logic
   const bigBannerMov = useEffect(() => {
     const bannerTicker = setTimeout(() => {
       ticker === 3 ? setTicker(0) : setTicker(ticker + 1);

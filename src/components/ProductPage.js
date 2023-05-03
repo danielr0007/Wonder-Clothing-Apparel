@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addItem, removeItem } from "../utils/cart";
+import { addItem, decreaseCart, getTotals } from "../utils/cart";
 import { addToWish, removeFromWish } from "../utils/wishList";
 import { useParams } from "react-router-dom";
 import { BsHandbag, BsHeart, BsCart, BsFillHeartFill } from "react-icons/bs";
@@ -10,14 +10,20 @@ import SmProductCard from "./SmProductCard";
 import ReviewCardContainer from "./ReviewCard";
 import CartIcon from "./CartIcon";
 import Coupon from "./Coupon";
+import CartSideBar from "./CartSideBar";
 
 const ProductPage = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
-  const cartCount = useSelector((state) => state.cart.items);
+  const cart = useSelector((state) => state.cart.items);
+  const totalCartQuantity = useSelector(
+    (state) => state.cart.cartTotalQuantity
+  );
   const [currentProductData, setCurrentProductData] = useState(null);
   const [addedToCart, setAddedToCart] = useState(false);
   const [addedToWish, setAddedToWish] = useState(false);
   const [clothingData, setClothingData] = useState(null);
+  const [currentProductQuantity, setCurrentProductQuantity] = useState(null);
+
   const [productInfoShown, setProductInfoShown] = useState({
     description: true,
     stock: false,
@@ -29,6 +35,7 @@ const ProductPage = () => {
 
   const dispatch = useDispatch();
 
+  // ! Fetches product data to be used
   useEffect(() => {
     async function getProductData() {
       let response = await fetch(productDataApi);
@@ -43,14 +50,31 @@ const ProductPage = () => {
     getProductData();
   }, []);
 
+  // Helps get cart
+  // useEffect(() => {
+  //   dispatch(getTotals());
+  // }, [cart, dispatch]);
+
+  //! Finds current product quantity and changes UI according to added to cart or not
+  useEffect(() => {
+    const CurrentProduct = cart?.find(
+      (item) => item?.id === currentProductData?.id
+    );
+
+    setCurrentProductQuantity(CurrentProduct?.cartQuantity);
+
+    CurrentProduct?.cartQuantity >= 1
+      ? setAddedToCart(true)
+      : setAddedToCart(false);
+  }, [totalCartQuantity]);
+
   function addToCart() {
     setAddedToCart(true);
     dispatch(addItem(currentProductData));
   }
 
-  function removeFromCart() {
-    dispatch(removeItem(currentProductData));
-    cartCount.length === 1 ? setAddedToCart(false) : setAddedToCart(true);
+  function decreaseAndRemoveFromCart() {
+    dispatch(decreaseCart(currentProductData));
   }
 
   function addToWishList() {
@@ -140,18 +164,19 @@ const ProductPage = () => {
                 )}
               </div>
             )}
+
             {/* Quantity & Go to cart///////////////////// */}
             {addedToCart && (
               <div className="pb-16 flex gap-14">
                 <div className="flex gap-3 items-center">
                   <div
-                    onClick={removeFromCart}
+                    onClick={decreaseAndRemoveFromCart}
                     className="w-10 h-11 bg-peach flex items-center cursor-pointer justify-center active:animate-bounce"
                   >
                     -
                   </div>
                   <p className="w-5 flex justify-center dark:text-white">
-                    {cartCount.length}
+                    {currentProductQuantity}
                   </p>
                   <div
                     onClick={addToCart}
@@ -238,6 +263,7 @@ const ProductPage = () => {
               })}
           </div>
         </div>
+        <CartSideBar />
       </section>
 
       {/* COUPON SECTION ////////////////////////////////////////////////////////////

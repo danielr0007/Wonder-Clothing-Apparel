@@ -1,6 +1,6 @@
 const HomeSecTitleAnimated = (props) => {
   return (
-    <div className="flex items-center mb-7 ">
+    <div className="flex items-center mb-7">
       <lord-icon
         src={props.source}
         trigger="loop"
