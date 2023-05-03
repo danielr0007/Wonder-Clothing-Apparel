@@ -33,16 +33,16 @@ const SearchPage = (props) => {
     <section
       className={`${
         props.show ? "block" : "hidden"
-      } h-full w-full bg-t-black fixed top-0 bottom-0 right-0 left-0 z-50 overflow-scroll`}
+      } h-full p-4 w-full bg-t-black fixed top-0 bottom-0 right-0 left-0 z-50 overflow-scroll`}
     >
-      <div className="pt-8 max-w-[1200px] mx-auto">
+      <div className="md:pt-8 pt-28 max-w-[1200px] mx-auto">
         {/* TITLE/////// */}
-        <h1 className="pb-9 mx-auto text-center text-white text-5xl font-semibold">
+        <h1 className="pb-9 mx-auto text-center text-white lg:text-5xl md:text-4xl text-2xl font-semibold">
           Search Products
         </h1>
         {/* INPUT////// */}
         <input
-          className="w-2/6 pl-3 py-3 mb-14 rounded-lg mx-auto block text-xl"
+          className="lg:w-2/6 md:w-3/6 w-5/6 pl-3 py-3 mb-14 rounded-lg mx-auto block text-xl"
           type="text"
           value={searchQuery}
           onChange={(e) => {
@@ -52,7 +52,7 @@ const SearchPage = (props) => {
 
         <div className="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 gap-5">
           {Boolean(productData) === false || validateInput(searchQuery) ? (
-            <h4 className="text-3xl text-white">No Items Found!</h4>
+            <h4 className="md:text-3xl text-2xl text-white">No Items Found!</h4>
           ) : (
             productData
               .filter(

@@ -1,15 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
-import { toggle } from "../utils/sideCartVisible";
+import { toggleSideCart } from "../utils/sideCartVisible";
 
 const CartIcon = () => {
-  const themeMode = useSelector((state) => state.themeMode.value);
+  // const themeMode = useSelector((state) => state.themeMode.value);
   const cartCount = useSelector((state) => state.cart.items);
 
   const dispatch = useDispatch();
 
   return (
     <div
-      onClick={() => dispatch(toggle())}
+      onClick={() => dispatch(toggleSideCart())}
       className="fixed right-7 top-60 md:flex flex-col animate-bounce hidden cursor-pointer"
     >
       <lord-icon

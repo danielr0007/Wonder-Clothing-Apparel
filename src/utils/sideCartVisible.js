@@ -4,12 +4,12 @@ const sideCartVisibleSlice = createSlice({
   name: "sideCartVisible",
   initialState: { value: false },
   reducers: {
-    toggle: (state) => {
+    toggleSideCart: (state) => {
       !state.value ? (state.value = true) : (state.value = false);
     },
   },
 });
 
-export const { toggle } = sideCartVisibleSlice.actions;
+export const { toggleSideCart } = sideCartVisibleSlice.actions;
 
 export default sideCartVisibleSlice.reducer;

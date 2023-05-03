@@ -5,7 +5,7 @@ import {
   BsFillTrashFill,
 } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
-import { toggle } from "../utils/sideCartVisible";
+import { toggleSideCart } from "../utils/sideCartVisible";
 import sideCartImage from "../assets/sidecart-image.png";
 import { Link } from "react-router-dom";
 import { productPics } from "../constants";
@@ -33,7 +33,7 @@ function CartSideBar() {
         <div className="p-5">
           <div className="mb-4 flex justify-end text-white text-sm">
             <button
-              onClick={() => dispatch(toggle())}
+              onClick={() => dispatch(toggleSideCart())}
               className="h-7 w-7 bg-red rounded-full flex items-center justify-center"
             >
               x
@@ -78,10 +78,11 @@ function CartSideBar() {
           </div>
         </div>
       ) : (
-        <div className="p-5 h-full border-2">
+        // ! Empty cart UI///////////////////////////////////////////////
+        <div className="p-5 h-full">
           <div className="mb-4 flex justify-end text-white text-sm">
             <button
-              onClick={() => dispatch(toggle())}
+              onClick={() => dispatch(toggleSideCart())}
               className="h-7 w-7 bg-red rounded-full flex items-center justify-center"
             >
               x

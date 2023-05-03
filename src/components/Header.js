@@ -5,9 +5,10 @@ import { BsChatDots, BsSearch, BsFillSunFill, BsCart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { toggle } from "../utils/themeMode";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MobileMenu from "./MobileMenu";
-import { show, remove } from "../utils/search";
+import { show } from "../utils/search";
+import { toggleSideCart } from "../utils/sideCartVisible";
 
 const Header = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
@@ -82,7 +83,10 @@ const Header = () => {
                 </Link>
               </li>
               <li className="md:hidden block">
-                <BsCart className="dark:text-l-grey" />
+                <BsCart
+                  onClick={() => dispatch(toggleSideCart())}
+                  className="dark:text-l-grey cursor-pointer"
+                />
               </li>
               <li>
                 <Link
