@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import WishList from "./components/WishList";
 import SignIn from "./components/SignIn";
 import ProductPage from "./components/ProductPage";
+import CartPage from "./components/CartPage";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/sign-in",
         element: <SignIn />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
       {
         path: "/product/:Id",

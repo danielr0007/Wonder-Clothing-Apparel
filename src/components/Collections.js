@@ -110,7 +110,9 @@ const Collections = () => {
   return (
     <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
       <CartIcon />
-      <section className={`pt-6 lg:px-7 md:px-10 px-3 bg-l-beige dark:bg-grey`}>
+      <section
+        className={`pt-6 pb-20 lg:px-7 md:px-10 px-3 bg-l-beige dark:bg-grey`}
+      >
         <div className="max-w-[1250px] mx-auto lg:grid grid-cols-12 gap-8">
           {/* Location List Section */}
 

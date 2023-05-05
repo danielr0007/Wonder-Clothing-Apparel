@@ -11,9 +11,11 @@ import ReviewCardContainer from "./ReviewCard";
 import CartIcon from "./CartIcon";
 import Coupon from "./Coupon";
 import CartSideBar from "./CartSideBar";
+import SearchPage from "./SearchPage";
 
 const ProductPage = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
+  const showSearch = useSelector((state) => state.search.value);
   const cart = useSelector((state) => state.cart.items);
   const totalCartQuantity = useSelector(
     (state) => state.cart.cartTotalQuantity
@@ -23,7 +25,7 @@ const ProductPage = () => {
   const [addedToWish, setAddedToWish] = useState(false);
   const [clothingData, setClothingData] = useState(null);
   const [currentProductQuantity, setCurrentProductQuantity] = useState(null);
-
+  const [productStateChange, setProductStateChange] = useState(0);
   const [productInfoShown, setProductInfoShown] = useState({
     description: true,
     stock: false,
@@ -48,12 +50,7 @@ const ProductPage = () => {
       setClothingData(data);
     }
     getProductData();
-  }, []);
-
-  // Helps get cart
-  // useEffect(() => {
-  //   dispatch(getTotals());
-  // }, [cart, dispatch]);
+  }, [productStateChange]);
 
   //! Finds current product quantity and changes UI according to added to cart or not
   useEffect(() => {
@@ -68,6 +65,11 @@ const ProductPage = () => {
       : setAddedToCart(false);
   }, [totalCartQuantity]);
 
+  function productPageProductChange() {
+    setProductStateChange(productStateChange + 1);
+  }
+
+  // ! Cart and wishlist dispatch functions/////////////////////
   function addToCart() {
     setAddedToCart(true);
     dispatch(addItem(currentProductData));
@@ -87,6 +89,7 @@ const ProductPage = () => {
     dispatch(removeFromWish(currentProductData));
   }
 
+  // ! Product description logic///////////////////////////////
   function showDescription() {
     setProductInfoShown({ description: true, stock: false, review: false });
   }
@@ -136,7 +139,7 @@ const ProductPage = () => {
 
             {/* Wishlist & Add to cart///////////////////// */}
             {addedToCart || (
-              <div className="pb-16 flex gap-7">
+              <div className="pb-16 flex md:gap-7 gap-4">
                 {/* add to cart */}
 
                 <div
@@ -167,7 +170,7 @@ const ProductPage = () => {
 
             {/* Quantity & Go to cart///////////////////// */}
             {addedToCart && (
-              <div className="pb-16 flex gap-14">
+              <div className="pb-16 flex md:gap-14 gap-8">
                 <div className="flex gap-3 items-center">
                   <div
                     onClick={decreaseAndRemoveFromCart}
@@ -187,9 +190,11 @@ const ProductPage = () => {
                 </div>
                 {/* go to cart */}
 
-                <div className="py-2 px-20 flex items-center justify-center gap-3 bg-grey dark:bg-d-purple rounded-lg cursor-pointer">
+                <div className="py-2 md:px-20 px-8 flex items-center justify-center gap-3 bg-grey dark:bg-d-purple rounded-lg cursor-pointer">
                   <BsHandbag className="text-white text-lg" />
-                  <p className="text-white text-sm ">Go to Cart</p>
+                  <Link to="/cart">
+                    <p className="text-white text-sm ">Go to Cart</p>
+                  </Link>
                 </div>
               </div>
             )}
@@ -253,7 +258,11 @@ const ProductPage = () => {
               .slice(Id, numberOfSimilarProducts)
               .map((product, i) => {
                 return (
-                  <Link to={"/product/" + product.id} key={product?.id}>
+                  <Link
+                    onClick={productPageProductChange}
+                    to={"/product/" + product.id}
+                    key={product?.id}
+                  >
                     <SmProductCard
                       productinfo={product}
                       productpics={productPics[product?.id - 1]}
@@ -263,17 +272,18 @@ const ProductPage = () => {
               })}
           </div>
         </div>
-        <CartSideBar />
       </section>
 
       {/* COUPON SECTION ////////////////////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
 
-      <section className="pt-6 pb-5 sm:px-7 px-3 bg-l-beige dark:bg-grey">
+      <section className="md:pt-6 pt-3 pb-5 sm:px-7 px-3 bg-l-beige dark:bg-grey">
         <div className="mx-auto lg:p-12 md:p-8 h-full xl:max-w-[1325px]">
           <Coupon />
         </div>
       </section>
+      <SearchPage data={clothingData} show={showSearch} />
+      <CartSideBar />
     </div>
   );
 };

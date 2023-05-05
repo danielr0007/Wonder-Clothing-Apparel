@@ -38,7 +38,6 @@ const Home = () => {
     }
     getProductData();
   }, []);
-  console.log(clothingData);
 
   // ! Big banner slide logic
   const bigBannerMov = useEffect(() => {
@@ -122,7 +121,7 @@ const Home = () => {
       {/* BENEFITS SECTION ///////////////////////////////////////////////
               //////////////////////////////////////////////////////// */}
 
-      <section className="pt-8 md:pb-7 pb-20 min-h-[335px] px-7 bg-l-beige dark:bg-grey ">
+      <section className="pt-8 md:pb-7 pb-20 min-h-[335px] px-2 bg-l-beige dark:bg-grey ">
         <div className="h-full max-w-[1325px] mx-auto grid lg:grid-cols-4 grid-cols-2 justify-items-center gap-9">
           {[...Array(4)].map((e, i) => (
             <BenefitHomeCards key={i} cardinfo={benefitsHomePageData[i]} />

@@ -42,7 +42,7 @@ const Footer = function () {
                   <Link to="sign-in">Login</Link>
                 </li>
                 <li className="text-sm pb-1 dark:text-l-grey">
-                  <Link>Register</Link>
+                  <Link to="sign-in">Register</Link>
                 </li>
               </ul>
             </div>
@@ -75,7 +75,7 @@ const Footer = function () {
 
           <div className="pt-5 flex md:gap-0 gap-4 justify-between">
             <p className="md:text-sm text-xs dark:text-l-grey">
-              All rights reserved to Fashionista © 2023
+              All rights reserved to WonderCloset © 2023
             </p>
             <div className="flex gap-4">
               <Link>

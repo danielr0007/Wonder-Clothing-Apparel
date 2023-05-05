@@ -63,7 +63,6 @@ const CardOverlay = function (props) {
 
   return (
     <div
-      // onMouseOut={props.removeFunction}
       className={`absolute ${
         props.showTrigger ? "opacity-100" : "opacity-0"
       } rounded-lg top-0 bottom-0 left-0 right-0 text-sm bg-t-white dark:bg-t-black flex justify-center items-center transition-opacity ease-in duration-150`}

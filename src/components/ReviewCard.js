@@ -2,7 +2,7 @@ import { testimonialPics } from "../constants";
 
 const ReviewCardContainer = function () {
   return (
-    <div className="lg:w-5/6 pr-2 w-full overflow-scroll">
+    <div className="lg:w-5/6 md:pb-0 pb-8 pr-2 w-full overflow-scroll">
       <ReviewCard
         pic={testimonialPics[0]}
         name="Daniel Rodriguez"

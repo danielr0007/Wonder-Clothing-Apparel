@@ -42,7 +42,7 @@ const WishList = () => {
               </h2>
 
               <Link
-                to="collections"
+                to="/collections"
                 className="py-3 px-9 bg-red rounded-lg text-white"
               >
                 Shop Now

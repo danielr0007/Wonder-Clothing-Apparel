@@ -24,7 +24,7 @@ const BenefitHomeCards = function ({ cardinfo }) {
     >
       {/* <div className="w-16 h-16 mb-4 bg-l-green rounded-3xl hover:animate-bounce"></div> */}
       <img
-        className={!hoverEffect ? "w-32" : "w-32 animate-bounce"}
+        className={!hoverEffect ? "md:w-32 w-28" : "w-32 animate-bounce"}
         src={cardinfo.img}
         alt=""
       />

@@ -24,7 +24,7 @@ const Contact = () => {
     <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
       <CartIcon />
       <section
-        className={`pt-6 pb-7 lg:px-7 md:px-5 px-3 bg-l-beige dark:bg-grey`}
+        className={`pt-6 md:pb-7 pb-20 lg:px-7 md:px-5 px-3 bg-l-beige dark:bg-grey`}
       >
         <div className="md:mb-8 max-w-[1150px] mx-auto">
           <h1 className="md:mt-4 mt-6 md:pb-12 pb-14 lg:text-5xl text-3xl dark:text-white font-bold text-center">

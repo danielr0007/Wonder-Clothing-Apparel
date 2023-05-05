@@ -1,12 +1,15 @@
 import CartSideBar from "./CartSideBar";
 import CartIcon from "./CartIcon";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { productDataApi } from "../constants";
 import singUpImage from "../assets/login-image.png";
 import loginImage from "../assets/signup-image.png";
-
+import SearchPage from "./SearchPage";
 const SignIn = () => {
   const themeMode = useSelector((state) => state.themeMode.value);
+  const showSearch = useSelector((state) => state.search.value);
+  const [clothingData, setClothingData] = useState(null);
   const [registerToLoginState, setRegisterToLoginState] = useState(false);
 
   function registerToLoginToggle() {
@@ -14,6 +17,19 @@ const SignIn = () => {
       ? setRegisterToLoginState(true)
       : setRegisterToLoginState(false);
   }
+
+  // ! Fetches data from API and sets it in clothingData state variable
+  useEffect(() => {
+    async function getProductData() {
+      let response = await fetch(productDataApi);
+      let data = await response.json();
+      let product = data;
+
+      setClothingData(product);
+    }
+    getProductData();
+  }, []);
+  console.log(clothingData);
 
   return (
     <div className={`${themeMode ? "bg-grey dark" : "bg-l-beige"}`}>
@@ -23,7 +39,7 @@ const SignIn = () => {
       >
         {/* Whole square container */}
         {registerToLoginState || (
-          <div className="my-36 w-[670px] h-[400px] md:grid grid-cols-2 bg-white dark:bg-l-grey rounded-lg shadow-lg">
+          <div className="md:my-36 my-20 w-[670px] h-[400px] md:grid grid-cols-2 bg-white dark:bg-l-grey rounded-lg shadow-lg">
             {/* Left side with form */}
             <div className="md:p-7 p-10">
               <h4 className="mb-6 text-center text-navy text-xl font-semibold">
@@ -69,6 +85,8 @@ const SignIn = () => {
           <RegisterBox registerToLoginToggle={registerToLoginToggle} />
         )}
       </section>
+      <SearchPage data={clothingData} show={showSearch} />
+      <CartSideBar />
     </div>
   );
 };

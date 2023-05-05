@@ -88,7 +88,9 @@ const SliderBanner = function (props) {
             OFF
           </h4>
 
-          <Link className="px-8 py-3 bg-red text-white">Buy Now</Link>
+          <Link to="collections" className="px-8 py-3 bg-red text-white">
+            Buy Now
+          </Link>
         </div>
       </div>
     </div>

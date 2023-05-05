@@ -15,6 +15,9 @@ function CartSideBar() {
   const cart = useSelector((state) => state.cart);
   const cartItems = useSelector((state) => state.cart.items);
   const cartTotal = useSelector((state) => state.cart.cartTotalAmount);
+  const cartTotalQuantity = useSelector(
+    (state) => state.cart.cartTotalQuantity
+  );
   const sideCartVisible = useSelector((state) => state.sideCartVisible.value);
   const dispatch = useDispatch();
 
@@ -27,7 +30,7 @@ function CartSideBar() {
     <div
       className={`${
         sideCartVisible ? "block" : "hidden"
-      } h-full xl:w-3/12 lg:w-5/12 md:w-7/12 w-9/12 bg-water dark:bg-d-grey fixed top-0 bottom-0 right-0 z-50 overflow-scroll`}
+      } h-full xl:w-3/12 lg:w-5/12 md:w-7/12 w-10/12 bg-water dark:bg-d-grey fixed top-0 bottom-0 right-0 z-50 overflow-scroll`}
     >
       {cartItems.length !== 0 ? (
         <div className="p-5">
@@ -44,7 +47,7 @@ function CartSideBar() {
             <h4 className="mb-1 text-xl font-semibold">Your Shopping Cart</h4>
             <p>
               Selected Items:
-              <span className="pl-1 font-semibold">TBD</span>
+              <span className="pl-1 font-semibold">{cartTotalQuantity}</span>
             </p>
           </div>
           {/* Product cards section */}
@@ -69,16 +72,20 @@ function CartSideBar() {
           </div>
 
           <div>
-            <button className="mb-3 w-full py-3 block border-navy hover:bg-l-green dark:border-yellow dark:hover:bg-d-purple dark:text-yellow border-2 rounded-lg text-sm">
+            <Link
+              to="/cart"
+              onClick={() => dispatch(toggleSideCart())}
+              className="mb-3 w-full py-3 block border-navy text-center hover:bg-l-green dark:border-yellow dark:hover:bg-d-purple dark:text-yellow border-2 rounded-lg text-sm"
+            >
               Go to Cart
-            </button>
+            </Link>
             <button className="w-full py-3 block bg-navy dark:hover:bg-l-grey hover:bg-blue dark:hover:text-black rounded-lg text-sm text-white">
               Checkout
             </button>
           </div>
         </div>
       ) : (
-        // ! Empty cart UI///////////////////////////////////////////////
+        // ! Empty cart UI/////////////////////////////////////////////////////////////////
         <div className="p-5 h-full">
           <div className="mb-4 flex justify-end text-white text-sm">
             <button
@@ -108,7 +115,7 @@ function CartSideBar() {
           </h2>
 
           <Link
-            to="collections"
+            to="/collections"
             className="py-3 w-5/12 mx-auto text-center bg-red rounded-lg text-white block"
           >
             Shop Now
@@ -122,7 +129,6 @@ function CartSideBar() {
 export default CartSideBar;
 
 const CartCard = function (props) {
-  // const allCartItems = props.allcartitems;
   const titleOfCurrentProduct = props.info.title;
   const currentProductData = props.info;
 
@@ -154,7 +160,7 @@ const CartCard = function (props) {
         <div className="w-full flex flex-col justify-between ">
           <p className="text-sm font-semibold">{titleOfCurrentProduct}</p>
           <p className="text-lg font-light">${props.info.price}</p>
-          <div className="w-3/12 flex justify-between items-center">
+          <div className="md:w-3/12 w-5/12 flex justify-between items-center">
             <BsPatchMinus onClick={decreaseAndRemoveFromCart} />
             <p>{currentProductData.cartQuantity}</p>
             <BsFillPatchPlusFill onClick={addToCart} />

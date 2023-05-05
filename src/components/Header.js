@@ -48,19 +48,22 @@ const Header = () => {
             className="self-center text-xl lg:hidden dark:text-l-grey cursor-pointer"
           />
           <Link to="/">
-            <img src={logo} className="lg:w-[220px] md:w-[200px] w-[120px]" />
+            <img
+              src={logo}
+              className="lg:w-[220px] md:w-[200px] w-[120px] hover:opacity-80"
+            />
           </Link>
 
           <div className="">
             <ul className="h-full flex gap-9 items-center">
-              <li className="lg:flex items-center gap-2 dark:text-l-grey hidden">
+              <li className="p-2 rounded-md hover:bg-l-grey lg:flex items-center gap-2 dark:text-l-grey hidden">
                 <FaOpencart /> <Link to="collections">Collections</Link>
               </li>
-              <li className="lg:flex items-center gap-2 dark:text-l-grey hidden">
+              <li className="p-2 rounded-md hover:bg-l-grey lg:flex items-center gap-2 dark:text-l-grey hidden">
                 <MdStorefront />
                 <Link to="location">Store Location</Link>
               </li>
-              <li className="lg:flex items-center gap-2 dark:text-l-grey hidden">
+              <li className="p-2 rounded-md hover:bg-l-grey lg:flex items-center gap-2 dark:text-l-grey hidden">
                 <BsChatDots />
                 <Link to="contact">Contact</Link>
               </li>
@@ -71,12 +74,12 @@ const Header = () => {
             <ul className="h-full flex md:gap-9 gap-4 items-center ">
               <li
                 onClick={() => dispatch(show())}
-                className="flex items-center gap-2 dark:text-l-grey cursor-pointer"
+                className="flex items-center gap-2 dark:text-l-grey hover:text-blue cursor-pointer"
               >
                 <BsSearch />
                 <p className="md:block hidden">Search</p>
               </li>
-              <li className="dark:text-l-grey">
+              <li className="dark:text-l-grey hover:text-blue">
                 <Link className="flex items-center gap-2" to="wishlist">
                   <FaRegHeart />
                   <p className="md:block hidden">Wish List</p>
@@ -90,7 +93,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  className="py-2 px-4 bg-red text-white rounded-md sm:block hidden"
+                  className="py-2 px-4 bg-red hover:opacity-90 text-white rounded-md sm:block hidden"
                   to="sign-in"
                 >
                   Sign In
