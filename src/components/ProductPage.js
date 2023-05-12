@@ -65,8 +65,10 @@ const ProductPage = () => {
       : setAddedToCart(false);
   }, [totalCartQuantity]);
 
+  // ! Changes the UI when product from similar product section is clicked
   function productPageProductChange() {
     setProductStateChange(productStateChange + 1);
+    setAddedToCart(false);
   }
 
   // ! Cart and wishlist dispatch functions/////////////////////
@@ -204,7 +206,7 @@ const ProductPage = () => {
                 onClick={showDescription}
                 className={`px-6 py-1 border-b-2 ${
                   productInfoShown.description
-                    ? "text-red border-b-black dark:border-l-grey"
+                    ? "text-red  dark:border-l-grey"
                     : "border-b-l-grey text-l-grey hover:text-navy dark:text-d-grey dark:border-d-grey dark:hover:text-l-grey"
                 }  cursor-pointer`}
               >
@@ -215,7 +217,7 @@ const ProductPage = () => {
                 className={`px-6 py-1 border-b-2 ${
                   productInfoShown.stock
                     ? "text-red border-b-black dark:border-l-grey"
-                    : "border-b-l-grey text-l-grey hover:text-navy dark:text-d-grey dark:border-d-grey dark:hover:text-l-grey"
+                    : "border-b-l-grey text-l-grey hover:text-navy dark:text-d-grey dark:border-b-d-grey dark:hover:text-l-grey"
                 } dark:border-l-grey cursor-pointer`}
               >
                 <p className="text-sm"># In-Stock</p>
@@ -224,8 +226,8 @@ const ProductPage = () => {
                 onClick={showReview}
                 className={`px-6 py-1 border-b-2 ${
                   productInfoShown.review
-                    ? "text-red border-b-blackdark:border-l-grey"
-                    : "border-b-l-grey text-l-grey hover:text-navy dark:text-d-grey dark:border-d-grey dark:hover:text-l-grey"
+                    ? "text-red border-b-black dark:border-l-grey"
+                    : "border-b-l-grey text-l-grey hover:text-navy dark:text-d-grey dark:border-b-d-grey dark:hover:text-l-grey"
                 } dark:border-l-grey cursor-pointer`}
               >
                 <p className="text-sm">Review</p>

@@ -45,12 +45,56 @@ function CartPage() {
       <section
         className={`pt-6 h-[800px] lg:px-7 md:px-5 px-3 bg-l-beige dark:bg-grey`}
       >
-        <div className="md:mb-8 max-w-[1250px] mx-auto flex flex-col">
+        <div className="md:mb-8 max-w-[1250px] mx-auto">
           <h1 className="md:mt-16 mt-10 md:pb-32 pb-16 lg:text-5xl md:text-4xl text-3xl  dark:text-white font-bold text-center">
             My Cart
           </h1>
 
-          <div className="p-3 flex gap-16 bg-d-beige dark:bg-navy dark:text-white text-sm font-semibold rounded-t-lg overflow-hidden">
+          {cartItems.length === 0 ? (
+            <div className="flex flex-col items-center">
+              <h2 className="md:mb-12 mb-16 md:text-3xl text-2xl text-center dark:text-white">
+                You have no items in your Cart!
+              </h2>
+
+              <Link
+                to="/collections"
+                className="py-3 px-9 bg-red rounded-lg text-white"
+              >
+                Shop Now
+              </Link>
+            </div>
+          ) : (
+            <div className="flex flex-col">
+              <div className="p-3 flex gap-16 bg-d-beige dark:bg-navy dark:text-white text-sm font-semibold rounded-t-lg overflow-hidden">
+                <div className="min-w-[470px]">
+                  <p className="">Product</p>
+                </div>
+                <div className="min-w-[155px]">
+                  <p className="">Price</p>
+                </div>
+                <div className="min-w-auto">
+                  <p className="">Quantity</p>
+                </div>
+              </div>
+
+              {cartItems
+                .filter((value, index) => cartItems.indexOf(value) === index)
+                .map((item) => {
+                  return (
+                    <CartCard
+                      key={item.id}
+                      info={item}
+                      images={productPics[item?.id - 1]}
+                      allcartitems={cartItems}
+                    />
+                  );
+                })}
+
+              <TotalCostComponent carttotal={cartTotal} />
+            </div>
+          )}
+
+          {/* <div className="p-3 flex gap-16 bg-d-beige dark:bg-navy dark:text-white text-sm font-semibold rounded-t-lg overflow-hidden">
             <div className="min-w-[470px]">
               <p className="">Product</p>
             </div>
@@ -75,7 +119,7 @@ function CartPage() {
               );
             })}
 
-          <TotalCostComponent />
+          <TotalCostComponent carttotal={cartTotal} /> */}
         </div>
       </section>
       <SearchPage data={clothingData} show={showSearch} />
@@ -160,13 +204,14 @@ function CartCard(props) {
   );
 }
 
-function TotalCostComponent() {
+function TotalCostComponent(props) {
+  const totalCartPrice = props.carttotal;
   return (
     <div className="lg:w-4/12 md:w-8/12 w-full p-4 mt-20 md:self-end self-none md:mx-0 mx-auto bg-white flex justify-center items-center rounded-lg shadow-xl">
       <div className="py-10 px-4 w-full flex flex-col items-center gap-10">
         <div className="flex items-center gap-2">
           <p className="text-lg">Subtotal</p>
-          <p className="text-4xl font-bold">$300</p>
+          <p className="text-4xl font-bold">${totalCartPrice}</p>
         </div>
 
         <button className="w-full py-3 block bg-navy dark:hover:bg-l-grey hover:bg-blue dark:hover:text-black rounded-lg text-sm text-white">

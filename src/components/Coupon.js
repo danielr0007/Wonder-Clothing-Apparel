@@ -18,7 +18,7 @@ const Coupon = () => {
         </h5>
         <div>
           <input
-            className="md:py-3 md:px-8 py-2 px-2 rounded-l-xl"
+            className="md:py-3 md:px-6 py-2 px-2 rounded-l-xl"
             type="text"
           />
           <button className="md:py-3 md:px-4 py-2 px-2 bg-red rounded-r-xl text-white">
